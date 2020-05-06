@@ -1,0 +1,2375 @@
+{
+  "format_version" : "1.0",
+  "generated_by" : "cytoscape-3.7.2",
+  "target_cytoscapejs_version" : "~2.1",
+  "data" : {
+    "shared_name" : "model_interactions_homepage_new.tab",
+    "name" : "mouse_browse",
+    "SUID" : 11822,
+    "__Annotations" : [ ],
+    "selected" : true
+  },
+  "elements" : {
+    "nodes" : [ {
+      "data" : {
+        "id" : "11965",
+        "max_lifespan_" : 259.0,
+        "shared_name" : "1576",
+        "avg_lifespan_" : 259.0,
+        "min_lifespan_" : 259.0,
+        "number" : 1,
+        "genes" : "p27",
+        "No_mutations" : 1,
+        "name" : "1576",
+        "SUID" : 11965,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -26.047307489439845,
+        "y" : 147.628936201334
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11963",
+        "max_lifespan_" : 352.0,
+        "shared_name" : "1573",
+        "avg_lifespan_" : 352.0,
+        "min_lifespan_" : 352.0,
+        "number" : 1,
+        "genes" : "p18",
+        "No_mutations" : 1,
+        "name" : "1573",
+        "SUID" : 11963,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -93.4871878605336,
+        "y" : 74.87219181656837
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11961",
+        "max_lifespan_" : 650.0,
+        "shared_name" : "1562",
+        "avg_lifespan_" : 650.0,
+        "min_lifespan_" : 650.0,
+        "number" : 1,
+        "genes" : "Cyp27b1;Fgf23",
+        "No_mutations" : 2,
+        "name" : "1562",
+        "SUID" : 11961,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 365.39097070880234,
+        "y" : -109.42765864729881
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11959",
+        "max_lifespan_" : 308.0,
+        "shared_name" : "6720",
+        "avg_lifespan_" : 263.666666666667,
+        "min_lifespan_" : 217.0,
+        "number" : 6,
+        "genes" : "bax;Ku70",
+        "No_mutations" : 2,
+        "name" : "6720",
+        "SUID" : 11959,
+        "stddev_lifespan_" : "38.4469331243295",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 234.87163019366562,
+        "y" : -289.10604152083397
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11955",
+        "max_lifespan_" : 450.0,
+        "shared_name" : "1545",
+        "avg_lifespan_" : 400.0,
+        "min_lifespan_" : 310.0,
+        "number" : 4,
+        "genes" : "Mgat5;Pten",
+        "No_mutations" : 2,
+        "name" : "1545",
+        "SUID" : 11955,
+        "stddev_lifespan_" : "63.7704215656966",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -251.3917288761586,
+        "y" : -173.9512411057949
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11953",
+        "max_lifespan_" : 521.0,
+        "shared_name" : "1537",
+        "avg_lifespan_" : 428.0,
+        "min_lifespan_" : 352.0,
+        "number" : 4,
+        "genes" : "E2f1;Rb1",
+        "No_mutations" : 2,
+        "name" : "1537",
+        "SUID" : 11953,
+        "stddev_lifespan_" : "75.7935793234933",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 141.32055890746415,
+        "y" : 327.04232731461525
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11952",
+        "max_lifespan_" : 340.0,
+        "shared_name" : "1536",
+        "avg_lifespan_" : 297.0,
+        "min_lifespan_" : 254.0,
+        "number" : 2,
+        "genes" : "Rb1",
+        "No_mutations" : 1,
+        "name" : "1536",
+        "SUID" : 11952,
+        "stddev_lifespan_" : "60.8111831820431",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 106.08534860797226,
+        "y" : 185.68514958024025
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11949",
+        "max_lifespan_" : 660.0,
+        "shared_name" : "1532",
+        "avg_lifespan_" : 660.0,
+        "min_lifespan_" : 660.0,
+        "number" : 1,
+        "genes" : "Bub3;Rae1",
+        "No_mutations" : 2,
+        "name" : "1532",
+        "SUID" : 11949,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 263.1672844905406,
+        "y" : -153.06812343001366
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11946",
+        "max_lifespan_" : 538.0,
+        "shared_name" : "1516",
+        "avg_lifespan_" : 513.5,
+        "min_lifespan_" : 489.0,
+        "number" : 2,
+        "genes" : "Mdm4",
+        "No_mutations" : 1,
+        "name" : "1516",
+        "SUID" : 11946,
+        "stddev_lifespan_" : "34.6482322781408",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -83.25482702068985,
+        "y" : 130.61822453141212
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11941",
+        "max_lifespan_" : 259.0,
+        "shared_name" : "1557",
+        "avg_lifespan_" : 259.0,
+        "min_lifespan_" : 259.0,
+        "number" : 1,
+        "genes" : "Ku70;Ku80",
+        "No_mutations" : 2,
+        "name" : "1557",
+        "SUID" : 11941,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 11.335733892396092,
+        "y" : -241.7285257279873
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11939",
+        "max_lifespan_" : 243.6,
+        "shared_name" : "1510",
+        "avg_lifespan_" : 236.95,
+        "min_lifespan_" : 230.3,
+        "number" : 2,
+        "genes" : "Ku80;Prkdc",
+        "No_mutations" : 2,
+        "name" : "1510",
+        "SUID" : 11939,
+        "stddev_lifespan_" : "9.40452018978145",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -156.0565237980336,
+        "y" : -226.43723353743553
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11937",
+        "max_lifespan_" : 267.0,
+        "shared_name" : "1527",
+        "avg_lifespan_" : 261.0,
+        "min_lifespan_" : 255.0,
+        "number" : 2,
+        "genes" : "K-ras;Mdm4",
+        "No_mutations" : 2,
+        "name" : "1527",
+        "SUID" : 11937,
+        "stddev_lifespan_" : "8.48528137423857",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -22.081914423033595,
+        "y" : 45.32748356461525
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11933",
+        "max_lifespan_" : 178.0,
+        "shared_name" : "1503",
+        "avg_lifespan_" : 178.0,
+        "min_lifespan_" : 178.0,
+        "number" : 1,
+        "genes" : "Apc;Egr1;Trp53",
+        "No_mutations" : 3,
+        "name" : "1503",
+        "SUID" : 11933,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -408.30380773358047,
+        "y" : 172.49703922867775
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11931",
+        "max_lifespan_" : 294.0,
+        "shared_name" : "1570",
+        "avg_lifespan_" : 262.5,
+        "min_lifespan_" : 231.0,
+        "number" : 2,
+        "genes" : "Apc;Ku80",
+        "No_mutations" : 2,
+        "name" : "1570",
+        "SUID" : 11931,
+        "stddev_lifespan_" : "44.5477272147525",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -229.65439367108047,
+        "y" : -89.50816401839256
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11929",
+        "max_lifespan_" : 144.0,
+        "shared_name" : "1501",
+        "avg_lifespan_" : 144.0,
+        "min_lifespan_" : 144.0,
+        "number" : 1,
+        "genes" : "Apc;Trp53",
+        "No_mutations" : 2,
+        "name" : "1501",
+        "SUID" : 11929,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -284.7944388370961,
+        "y" : 155.58602848649025
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11927",
+        "max_lifespan_" : 179.0,
+        "shared_name" : "1500",
+        "avg_lifespan_" : 178.5,
+        "min_lifespan_" : 178.0,
+        "number" : 2,
+        "genes" : "Apc;Egr1",
+        "No_mutations" : 2,
+        "name" : "1500",
+        "SUID" : 11927,
+        "stddev_lifespan_" : "0.707106781186548",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -360.34262609295547,
+        "y" : 64.55328312516212
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11925",
+        "max_lifespan_" : 295.0,
+        "shared_name" : "1559",
+        "avg_lifespan_" : 295.0,
+        "min_lifespan_" : 295.0,
+        "number" : 1,
+        "genes" : "Hgf;Sod1",
+        "No_mutations" : 2,
+        "name" : "1559",
+        "SUID" : 11925,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 403.74029016681015,
+        "y" : 111.60870304703712
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11923",
+        "max_lifespan_" : 128.0,
+        "shared_name" : "1515",
+        "avg_lifespan_" : 128.0,
+        "min_lifespan_" : 128.0,
+        "number" : 1,
+        "genes" : "Mobr;Sod1",
+        "No_mutations" : 2,
+        "name" : "1515",
+        "SUID" : 11923,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 361.84681177325547,
+        "y" : 177.18591251969337
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11921",
+        "max_lifespan_" : 178.0,
+        "shared_name" : "1496",
+        "avg_lifespan_" : 174.0,
+        "min_lifespan_" : 170.0,
+        "number" : 2,
+        "genes" : "Ripk3;Sod1",
+        "No_mutations" : 2,
+        "name" : "1496",
+        "SUID" : 11921,
+        "stddev_lifespan_" : "5.65685424949238",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 400.31182336993515,
+        "y" : 33.940307050943375
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11920",
+        "max_lifespan_" : 250.0,
+        "shared_name" : "1495",
+        "avg_lifespan_" : 173.75,
+        "min_lifespan_" : 118.0,
+        "number" : 4,
+        "genes" : "Sod1",
+        "No_mutations" : 1,
+        "name" : "1495",
+        "SUID" : 11920,
+        "stddev_lifespan_" : "55.4278810708113",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 266.63821649737656,
+        "y" : 71.64703312516212
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11918",
+        "max_lifespan_" : 246.0,
+        "shared_name" : "1493",
+        "avg_lifespan_" : 204.5,
+        "min_lifespan_" : 163.0,
+        "number" : 2,
+        "genes" : "Kl;Pai1",
+        "No_mutations" : 2,
+        "name" : "1493",
+        "SUID" : 11918,
+        "stddev_lifespan_" : "58.6898628384834",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 258.7183098811656,
+        "y" : 170.07162418961525
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11917",
+        "max_lifespan_" : 58.0,
+        "shared_name" : "1492",
+        "avg_lifespan_" : 58.0,
+        "min_lifespan_" : 58.0,
+        "number" : 1,
+        "genes" : "Kl",
+        "No_mutations" : 1,
+        "name" : "1492",
+        "SUID" : 11917,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 157.0567460078746,
+        "y" : 80.60247746109962
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11913",
+        "max_lifespan_" : 669.167,
+        "shared_name" : "1485",
+        "avg_lifespan_" : 669.167,
+        "min_lifespan_" : 669.167,
+        "number" : 1,
+        "genes" : "Kv1.3;Mc4r",
+        "No_mutations" : 2,
+        "name" : "1485",
+        "SUID" : 11913,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 70.44822931475937,
+        "y" : 265.59542790055275
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11911",
+        "max_lifespan_" : 344.0,
+        "shared_name" : "1581",
+        "avg_lifespan_" : 290.5,
+        "min_lifespan_" : 237.0,
+        "number" : 2,
+        "genes" : "Sirt6;Trp53",
+        "No_mutations" : 2,
+        "name" : "1581",
+        "SUID" : 11911,
+        "stddev_lifespan_" : "75.6604255869606",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -188.11368322186172,
+        "y" : -23.366440385580063
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11909",
+        "max_lifespan_" : 114.0,
+        "shared_name" : "1577",
+        "avg_lifespan_" : 114.0,
+        "min_lifespan_" : 114.0,
+        "number" : 1,
+        "genes" : "p27;Trp53",
+        "No_mutations" : 2,
+        "name" : "1577",
+        "SUID" : 11909,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -122.69553136639297,
+        "y" : 230.03216496109962
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11907",
+        "max_lifespan_" : 163.0,
+        "shared_name" : "1575",
+        "avg_lifespan_" : 163.0,
+        "min_lifespan_" : 163.0,
+        "number" : 1,
+        "genes" : "p18;Trp53",
+        "No_mutations" : 2,
+        "name" : "1575",
+        "SUID" : 11907,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -207.68948888592422,
+        "y" : 167.655791670084
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11905",
+        "max_lifespan_" : 325.0,
+        "shared_name" : "1518",
+        "avg_lifespan_" : 192.6,
+        "min_lifespan_" : 98.0,
+        "number" : 5,
+        "genes" : "Mdm4;Trp53",
+        "No_mutations" : 2,
+        "name" : "1518",
+        "SUID" : 11905,
+        "stddev_lifespan_" : "114.352197180465",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -181.89178991131485,
+        "y" : 225.54687443375587
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11903",
+        "max_lifespan_" : 266.0,
+        "shared_name" : "1507",
+        "avg_lifespan_" : 266.0,
+        "min_lifespan_" : 266.0,
+        "number" : 1,
+        "genes" : "K-ras;Trp53",
+        "No_mutations" : 2,
+        "name" : "1507",
+        "SUID" : 11903,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -257.6279654484242,
+        "y" : 17.3561090528965
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11901",
+        "max_lifespan_" : 490.0,
+        "shared_name" : "1489",
+        "avg_lifespan_" : 311.5,
+        "min_lifespan_" : 133.0,
+        "number" : 2,
+        "genes" : "Rbm38;Trp53",
+        "No_mutations" : 2,
+        "name" : "1489",
+        "SUID" : 11901,
+        "stddev_lifespan_" : "252.437120883597",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -70.21893834881485,
+        "y" : 202.9803766310215
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11899",
+        "max_lifespan_" : 430.0,
+        "shared_name" : "1481",
+        "avg_lifespan_" : 430.0,
+        "min_lifespan_" : 430.0,
+        "number" : 1,
+        "genes" : "Mclk1;Trp53",
+        "No_mutations" : 2,
+        "name" : "1481",
+        "SUID" : 11899,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -293.36896276287735,
+        "y" : 96.99633732438087
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11897",
+        "max_lifespan_" : 175.0,
+        "shared_name" : "1479",
+        "avg_lifespan_" : 175.0,
+        "min_lifespan_" : 175.0,
+        "number" : 1,
+        "genes" : "Cp;Heph",
+        "No_mutations" : 2,
+        "name" : "1479",
+        "SUID" : 11897,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 239.83903742022812,
+        "y" : 264.72140446305275
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11896",
+        "max_lifespan_" : 175.0,
+        "shared_name" : "1478",
+        "avg_lifespan_" : 175.0,
+        "min_lifespan_" : 175.0,
+        "number" : 1,
+        "genes" : "Cp",
+        "No_mutations" : 1,
+        "name" : "1478",
+        "SUID" : 11896,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 160.29779100604355,
+        "y" : 142.07873478531837
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11894",
+        "max_lifespan_" : 630.0,
+        "shared_name" : "1469",
+        "avg_lifespan_" : 630.0,
+        "min_lifespan_" : 630.0,
+        "number" : 1,
+        "genes" : "Rad54",
+        "No_mutations" : 1,
+        "name" : "1469",
+        "SUID" : 11894,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 101.39695978350937,
+        "y" : -128.0024877488613
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11892",
+        "max_lifespan_" : 139.0,
+        "shared_name" : "1564",
+        "avg_lifespan_" : 138.0,
+        "min_lifespan_" : 137.0,
+        "number" : 2,
+        "genes" : "Atm;Sirt6",
+        "No_mutations" : 2,
+        "name" : "1564",
+        "SUID" : 11892,
+        "stddev_lifespan_" : "1.4142135623731",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 27.12032556720078,
+        "y" : -130.54116877913475
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11890",
+        "max_lifespan_" : 168.0,
+        "shared_name" : "1473",
+        "avg_lifespan_" : 168.0,
+        "min_lifespan_" : 168.0,
+        "number" : 1,
+        "genes" : "Atm;Rad54B",
+        "No_mutations" : 2,
+        "name" : "1473",
+        "SUID" : 11890,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 131.10802793689072,
+        "y" : -357.3265386521816
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11888",
+        "max_lifespan_" : 140.0,
+        "shared_name" : "1471",
+        "avg_lifespan_" : 140.0,
+        "min_lifespan_" : 140.0,
+        "number" : 1,
+        "genes" : "Atm;Rad54",
+        "No_mutations" : 2,
+        "name" : "1471",
+        "SUID" : 11888,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 175.82510614581406,
+        "y" : -244.48876056075096
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11885",
+        "max_lifespan_" : 199.0,
+        "shared_name" : "1587",
+        "avg_lifespan_" : 199.0,
+        "min_lifespan_" : 199.0,
+        "number" : 1,
+        "genes" : "Prkdc;Terc",
+        "No_mutations" : 2,
+        "name" : "1587",
+        "SUID" : 11885,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -120.26056432537735,
+        "y" : -293.8712259232998
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11883",
+        "max_lifespan_" : 148.0,
+        "shared_name" : "1535",
+        "avg_lifespan_" : 148.0,
+        "min_lifespan_" : 148.0,
+        "number" : 1,
+        "genes" : "Terc;Trp53",
+        "No_mutations" : 2,
+        "name" : "1535",
+        "SUID" : 11883,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -107.04353856854141,
+        "y" : -62.794373124837875
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11881",
+        "max_lifespan_" : 604.0,
+        "shared_name" : "1534",
+        "avg_lifespan_" : 604.0,
+        "min_lifespan_" : 604.0,
+        "number" : 1,
+        "genes" : "Cdkn1a;Terc",
+        "No_mutations" : 2,
+        "name" : "1534",
+        "SUID" : 11881,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -55.35104894451797,
+        "y" : -375.2617116868496
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11879",
+        "max_lifespan_" : 718.0,
+        "shared_name" : "1476",
+        "avg_lifespan_" : 646.666666666667,
+        "min_lifespan_" : 504.0,
+        "number" : 3,
+        "genes" : "Shc1;Terc",
+        "No_mutations" : 2,
+        "name" : "1476",
+        "SUID" : 11879,
+        "stddev_lifespan_" : "123.55295760658",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -136.39850377850235,
+        "y" : -363.00625666975975
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11877",
+        "max_lifespan_" : 380.0,
+        "shared_name" : "1468",
+        "avg_lifespan_" : 380.0,
+        "min_lifespan_" : 380.0,
+        "number" : 2,
+        "genes" : "Atm;Terc",
+        "No_mutations" : 2,
+        "name" : "1468",
+        "SUID" : 11877,
+        "stddev_lifespan_" : "0.0",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 23.572519781067967,
+        "y" : -331.3447652757168
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11875",
+        "max_lifespan_" : 427.0,
+        "shared_name" : "1464",
+        "avg_lifespan_" : 427.0,
+        "min_lifespan_" : 427.0,
+        "number" : 2,
+        "genes" : "Dmd;mdx;Utrn",
+        "No_mutations" : 3,
+        "name" : "1464",
+        "SUID" : 11875,
+        "stddev_lifespan_" : "0.0",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -405.28635549359024,
+        "y" : 427.04232731461525
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11874",
+        "max_lifespan_" : 274.0,
+        "shared_name" : "1463",
+        "avg_lifespan_" : 274.0,
+        "min_lifespan_" : 274.0,
+        "number" : 2,
+        "genes" : "Mdx;Utrn",
+        "No_mutations" : 2,
+        "name" : "1463",
+        "SUID" : 11874,
+        "stddev_lifespan_" : "0.0",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -408.30380773358047,
+        "y" : 534.7644952833652
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11871",
+        "max_lifespan_" : 546.0,
+        "shared_name" : "1461",
+        "avg_lifespan_" : 546.0,
+        "min_lifespan_" : 546.0,
+        "number" : 1,
+        "genes" : "Pink1;Snca",
+        "No_mutations" : 2,
+        "name" : "1461",
+        "SUID" : 11871,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 293.0474343318492,
+        "y" : -9.11697444319725
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11869",
+        "max_lifespan_" : 24.0,
+        "shared_name" : "1580",
+        "avg_lifespan_" : 24.0,
+        "min_lifespan_" : 24.0,
+        "number" : 1,
+        "genes" : "Sirt6",
+        "No_mutations" : 1,
+        "name" : "1580",
+        "SUID" : 11869,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -53.25319433026016,
+        "y" : -53.85463008284569
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11867",
+        "max_lifespan_" : 42.0,
+        "shared_name" : "1561",
+        "avg_lifespan_" : 42.0,
+        "min_lifespan_" : 42.0,
+        "number" : 1,
+        "genes" : "Fgf23",
+        "No_mutations" : 1,
+        "name" : "1561",
+        "SUID" : 11867,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 225.02508020587265,
+        "y" : -68.42950496077538
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11865",
+        "max_lifespan_" : 259.0,
+        "shared_name" : "1555",
+        "avg_lifespan_" : 196.0,
+        "min_lifespan_" : 147.0,
+        "number" : 3,
+        "genes" : "Ku70",
+        "No_mutations" : 1,
+        "name" : "1555",
+        "SUID" : 11865,
+        "stddev_lifespan_" : "57.2974694031072",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 124.31620645709336,
+        "y" : -184.5171056687832
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11863",
+        "max_lifespan_" : 675.0,
+        "shared_name" : "1544",
+        "avg_lifespan_" : 579.25,
+        "min_lifespan_" : 520.0,
+        "number" : 4,
+        "genes" : "Mgat5",
+        "No_mutations" : 1,
+        "name" : "1544",
+        "SUID" : 11863,
+        "stddev_lifespan_" : "73.9070362008923",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -150.17673253826797,
+        "y" : -87.591034501791
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11861",
+        "max_lifespan_" : 417.0,
+        "shared_name" : "1543",
+        "avg_lifespan_" : 353.0,
+        "min_lifespan_" : 289.0,
+        "number" : 2,
+        "genes" : "Pten",
+        "No_mutations" : 1,
+        "name" : "1543",
+        "SUID" : 11861,
+        "stddev_lifespan_" : "90.5096679918781",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -127.60941076092422,
+        "y" : -137.09558162093163
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11859",
+        "max_lifespan_" : 720.0,
+        "shared_name" : "1531",
+        "avg_lifespan_" : 720.0,
+        "min_lifespan_" : 720.0,
+        "number" : 1,
+        "genes" : "Rae1",
+        "No_mutations" : 1,
+        "name" : "1531",
+        "SUID" : 11859,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 152.6670908946544,
+        "y" : -65.44107112288475
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11857",
+        "max_lifespan_" : 720.0,
+        "shared_name" : "1530",
+        "avg_lifespan_" : 720.0,
+        "min_lifespan_" : 720.0,
+        "number" : 1,
+        "genes" : "Bub3",
+        "No_mutations" : 1,
+        "name" : "1530",
+        "SUID" : 11857,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 161.6021904964,
+        "y" : -115.49806270003319
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11855",
+        "max_lifespan_" : 364.0,
+        "shared_name" : "1509",
+        "avg_lifespan_" : 312.433333333333,
+        "min_lifespan_" : 276.5,
+        "number" : 3,
+        "genes" : "Prkdc",
+        "No_mutations" : 1,
+        "name" : "1509",
+        "SUID" : 11855,
+        "stddev_lifespan_" : "45.7969795219438",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -44.21481847576797,
+        "y" : -172.7263112962246
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11853",
+        "max_lifespan_" : 791.0,
+        "shared_name" : "1508",
+        "avg_lifespan_" : 403.76,
+        "min_lifespan_" : 226.8,
+        "number" : 5,
+        "genes" : "Ku80",
+        "No_mutations" : 1,
+        "name" : "1508",
+        "SUID" : 11853,
+        "stddev_lifespan_" : "244.821134708587",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -77.08580541424453,
+        "y" : -128.4772191941738
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11851",
+        "max_lifespan_" : 373.0,
+        "shared_name" : "1506",
+        "avg_lifespan_" : 357.0,
+        "min_lifespan_" : 341.0,
+        "number" : 2,
+        "genes" : "K-ras",
+        "No_mutations" : 1,
+        "name" : "1506",
+        "SUID" : 11851,
+        "stddev_lifespan_" : "22.6274169979695",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -117.11282872967422,
+        "y" : 8.698058515787125
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11849",
+        "max_lifespan_" : 280.0,
+        "shared_name" : "1499",
+        "avg_lifespan_" : 267.5,
+        "min_lifespan_" : 255.0,
+        "number" : 2,
+        "genes" : "Apc",
+        "No_mutations" : 1,
+        "name" : "1499",
+        "SUID" : 11849,
+        "stddev_lifespan_" : "17.6776695296637",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -198.5968070011586,
+        "y" : 40.301574140787125
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11847",
+        "max_lifespan_" : 749.0,
+        "shared_name" : "1487",
+        "avg_lifespan_" : 749.0,
+        "min_lifespan_" : 749.0,
+        "number" : 1,
+        "genes" : "Rbm38",
+        "No_mutations" : 1,
+        "name" : "1487",
+        "SUID" : 11847,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 12.15371179766953,
+        "y" : 105.17626896500587
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11845",
+        "max_lifespan_" : 547.501,
+        "shared_name" : "1484",
+        "avg_lifespan_" : 547.501,
+        "min_lifespan_" : 547.501,
+        "number" : 1,
+        "genes" : "Mc4r",
+        "No_mutations" : 1,
+        "name" : "1484",
+        "SUID" : 11845,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 86.65080881305039,
+        "y" : 121.3429254591465
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11843",
+        "max_lifespan_" : 973.3,
+        "shared_name" : "1483",
+        "avg_lifespan_" : 973.3,
+        "min_lifespan_" : 973.3,
+        "number" : 1,
+        "genes" : "Kv1.3",
+        "No_mutations" : 1,
+        "name" : "1483",
+        "SUID" : 11843,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 40.531733037903905,
+        "y" : 160.06564274430275
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11841",
+        "max_lifespan_" : 510.0,
+        "shared_name" : "1480",
+        "avg_lifespan_" : 310.444444444444,
+        "min_lifespan_" : 118.0,
+        "number" : 9,
+        "genes" : "Trp53",
+        "No_mutations" : 1,
+        "name" : "1480",
+        "SUID" : 11841,
+        "stddev_lifespan_" : "164.183670862171",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -153.87906408123672,
+        "y" : 93.18112125992775
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11839",
+        "max_lifespan_" : 395.0,
+        "shared_name" : "1467",
+        "avg_lifespan_" : 246.666666666667,
+        "min_lifespan_" : 110.0,
+        "number" : 6,
+        "genes" : "Atm",
+        "No_mutations" : 1,
+        "name" : "1467",
+        "SUID" : 11839,
+        "stddev_lifespan_" : "126.97348804639",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 73.54953241534531,
+        "y" : -220.08026561141014
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11837",
+        "max_lifespan_" : 720.0,
+        "shared_name" : "1466",
+        "avg_lifespan_" : 518.25,
+        "min_lifespan_" : 320.0,
+        "number" : 4,
+        "genes" : "Terc",
+        "No_mutations" : 1,
+        "name" : "1466",
+        "SUID" : 11837,
+        "stddev_lifespan_" : "180.274559122098",
+        "selected" : false
+      },
+      "position" : {
+        "x" : -56.081059930846095,
+        "y" : -223.99274119734764
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11835",
+        "max_lifespan_" : 226.0,
+        "shared_name" : "1459",
+        "avg_lifespan_" : 226.0,
+        "min_lifespan_" : 226.0,
+        "number" : 2,
+        "genes" : "Snca",
+        "No_mutations" : 1,
+        "name" : "1459",
+        "SUID" : 11835,
+        "stddev_lifespan_" : "0.0",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 186.67268991656601,
+        "y" : 29.366698652505875
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11833",
+        "max_lifespan_" : 592.0,
+        "shared_name" : "1457",
+        "avg_lifespan_" : 592.0,
+        "min_lifespan_" : 592.0,
+        "number" : 1,
+        "genes" : "Pink1",
+        "No_mutations" : 1,
+        "name" : "1457",
+        "SUID" : 11833,
+        "stddev_lifespan_" : "None",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 159.5755677241832,
+        "y" : -10.977661699056625
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11832",
+        "max_lifespan_" : 1062.0,
+        "shared_name" : "1456",
+        "avg_lifespan_" : 725.824631578947,
+        "min_lifespan_" : 372.0,
+        "number" : 19,
+        "genes" : "Wild type",
+        "No_mutations" : 0,
+        "name" : "1456",
+        "SUID" : 11832,
+        "stddev_lifespan_" : "181.697988415518",
+        "selected" : false
+      },
+      "position" : {
+        "x" : 31.790888311341405,
+        "y" : -10.740173906087875
+      },
+      "selected" : false
+    } ],
+    "edges" : [ {
+      "data" : {
+        "id" : "11966",
+        "source" : "11965",
+        "target" : "11909",
+        "shared_name" : "1576 (direct) 1577",
+        "name" : "1576 (direct) 1577",
+        "interaction" : "direct",
+        "SUID" : 11966,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11964",
+        "source" : "11963",
+        "target" : "11907",
+        "shared_name" : "1573 (direct) 1575",
+        "name" : "1573 (direct) 1575",
+        "interaction" : "direct",
+        "SUID" : 11964,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11954",
+        "source" : "11952",
+        "target" : "11953",
+        "shared_name" : "1536 (direct) 1537",
+        "name" : "1536 (direct) 1537",
+        "interaction" : "direct",
+        "SUID" : 11954,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11948",
+        "source" : "11946",
+        "target" : "11937",
+        "shared_name" : "1516 (direct) 1527",
+        "name" : "1516 (direct) 1527",
+        "interaction" : "direct",
+        "SUID" : 11948,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11947",
+        "source" : "11946",
+        "target" : "11905",
+        "shared_name" : "1516 (direct) 1518",
+        "name" : "1516 (direct) 1518",
+        "interaction" : "direct",
+        "SUID" : 11947,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11935",
+        "source" : "11929",
+        "target" : "11933",
+        "shared_name" : "1501 (direct) 1503",
+        "name" : "1501 (direct) 1503",
+        "interaction" : "direct",
+        "SUID" : 11935,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11934",
+        "source" : "11927",
+        "target" : "11933",
+        "shared_name" : "1500 (direct) 1503",
+        "name" : "1500 (direct) 1503",
+        "interaction" : "direct",
+        "SUID" : 11934,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11926",
+        "source" : "11920",
+        "target" : "11925",
+        "shared_name" : "1495 (direct) 1559",
+        "name" : "1495 (direct) 1559",
+        "interaction" : "direct",
+        "SUID" : 11926,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11924",
+        "source" : "11920",
+        "target" : "11923",
+        "shared_name" : "1495 (direct) 1515",
+        "name" : "1495 (direct) 1515",
+        "interaction" : "direct",
+        "SUID" : 11924,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11922",
+        "source" : "11920",
+        "target" : "11921",
+        "shared_name" : "1495 (direct) 1496",
+        "name" : "1495 (direct) 1496",
+        "interaction" : "direct",
+        "SUID" : 11922,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11919",
+        "source" : "11917",
+        "target" : "11918",
+        "shared_name" : "1492 (direct) 1493",
+        "name" : "1492 (direct) 1493",
+        "interaction" : "direct",
+        "SUID" : 11919,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11898",
+        "source" : "11896",
+        "target" : "11897",
+        "shared_name" : "1478 (direct) 1479",
+        "name" : "1478 (direct) 1479",
+        "interaction" : "direct",
+        "SUID" : 11898,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11895",
+        "source" : "11894",
+        "target" : "11888",
+        "shared_name" : "1469 (direct) 1471",
+        "name" : "1469 (direct) 1471",
+        "interaction" : "direct",
+        "SUID" : 11895,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11876",
+        "source" : "11874",
+        "target" : "11875",
+        "shared_name" : "1463 (direct) 1464",
+        "name" : "1463 (direct) 1464",
+        "interaction" : "direct",
+        "SUID" : 11876,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11969",
+        "source" : "11869",
+        "target" : "11892",
+        "shared_name" : "1580 (different_experiments) 1564",
+        "name" : "1580 (different_experiments) 1564",
+        "interaction" : "different_experiments",
+        "SUID" : 11969,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11967",
+        "source" : "11869",
+        "target" : "11911",
+        "shared_name" : "1580 (direct) 1581",
+        "name" : "1580 (direct) 1581",
+        "interaction" : "direct",
+        "SUID" : 11967,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11962",
+        "source" : "11867",
+        "target" : "11961",
+        "shared_name" : "1561 (direct) 1562",
+        "name" : "1561 (direct) 1562",
+        "interaction" : "direct",
+        "SUID" : 11962,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11960",
+        "source" : "11865",
+        "target" : "11959",
+        "shared_name" : "1555 (direct) 6720",
+        "name" : "1555 (direct) 6720",
+        "interaction" : "direct",
+        "SUID" : 11960,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11958",
+        "source" : "11865",
+        "target" : "11941",
+        "shared_name" : "1555 (direct) 1557",
+        "name" : "1555 (direct) 1557",
+        "interaction" : "direct",
+        "SUID" : 11958,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11957",
+        "source" : "11863",
+        "target" : "11955",
+        "shared_name" : "1544 (direct) 1545",
+        "name" : "1544 (direct) 1545",
+        "interaction" : "direct",
+        "SUID" : 11957,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11956",
+        "source" : "11861",
+        "target" : "11955",
+        "shared_name" : "1543 (direct) 1545",
+        "name" : "1543 (direct) 1545",
+        "interaction" : "direct",
+        "SUID" : 11956,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11951",
+        "source" : "11859",
+        "target" : "11949",
+        "shared_name" : "1531 (direct) 1532",
+        "name" : "1531 (direct) 1532",
+        "interaction" : "direct",
+        "SUID" : 11951,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11950",
+        "source" : "11857",
+        "target" : "11949",
+        "shared_name" : "1530 (direct) 1532",
+        "name" : "1530 (direct) 1532",
+        "interaction" : "direct",
+        "SUID" : 11950,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11945",
+        "source" : "11855",
+        "target" : "11885",
+        "shared_name" : "1509 (direct) 1587",
+        "name" : "1509 (direct) 1587",
+        "interaction" : "direct",
+        "SUID" : 11945,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11944",
+        "source" : "11855",
+        "target" : "11939",
+        "shared_name" : "1509 (direct) 1510",
+        "name" : "1509 (direct) 1510",
+        "interaction" : "direct",
+        "SUID" : 11944,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11943",
+        "source" : "11853",
+        "target" : "11931",
+        "shared_name" : "1508 (direct) 1570",
+        "name" : "1508 (direct) 1570",
+        "interaction" : "direct",
+        "SUID" : 11943,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11942",
+        "source" : "11853",
+        "target" : "11941",
+        "shared_name" : "1508 (direct) 1557",
+        "name" : "1508 (direct) 1557",
+        "interaction" : "direct",
+        "SUID" : 11942,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11940",
+        "source" : "11853",
+        "target" : "11939",
+        "shared_name" : "1508 (direct) 1510",
+        "name" : "1508 (direct) 1510",
+        "interaction" : "direct",
+        "SUID" : 11940,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11938",
+        "source" : "11851",
+        "target" : "11937",
+        "shared_name" : "1506 (direct) 1527",
+        "name" : "1506 (direct) 1527",
+        "interaction" : "direct",
+        "SUID" : 11938,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11936",
+        "source" : "11851",
+        "target" : "11903",
+        "shared_name" : "1506 (direct) 1507",
+        "name" : "1506 (direct) 1507",
+        "interaction" : "direct",
+        "SUID" : 11936,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11932",
+        "source" : "11849",
+        "target" : "11931",
+        "shared_name" : "1499 (direct) 1570",
+        "name" : "1499 (direct) 1570",
+        "interaction" : "direct",
+        "SUID" : 11932,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11930",
+        "source" : "11849",
+        "target" : "11929",
+        "shared_name" : "1499 (direct) 1501",
+        "name" : "1499 (direct) 1501",
+        "interaction" : "direct",
+        "SUID" : 11930,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11928",
+        "source" : "11849",
+        "target" : "11927",
+        "shared_name" : "1499 (direct) 1500",
+        "name" : "1499 (direct) 1500",
+        "interaction" : "direct",
+        "SUID" : 11928,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11916",
+        "source" : "11847",
+        "target" : "11901",
+        "shared_name" : "1487 (direct) 1489",
+        "name" : "1487 (direct) 1489",
+        "interaction" : "direct",
+        "SUID" : 11916,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11915",
+        "source" : "11845",
+        "target" : "11913",
+        "shared_name" : "1484 (direct) 1485",
+        "name" : "1484 (direct) 1485",
+        "interaction" : "direct",
+        "SUID" : 11915,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11914",
+        "source" : "11843",
+        "target" : "11913",
+        "shared_name" : "1483 (direct) 1485",
+        "name" : "1483 (direct) 1485",
+        "interaction" : "direct",
+        "SUID" : 11914,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11978",
+        "source" : "11841",
+        "target" : "11883",
+        "shared_name" : "1480 (different_experiments) 1535",
+        "name" : "1480 (different_experiments) 1535",
+        "interaction" : "different_experiments",
+        "SUID" : 11978,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11968",
+        "source" : "11841",
+        "target" : "11929",
+        "shared_name" : "1480 (different_experiments) 1501",
+        "name" : "1480 (different_experiments) 1501",
+        "interaction" : "different_experiments",
+        "SUID" : 11968,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11912",
+        "source" : "11841",
+        "target" : "11911",
+        "shared_name" : "1480 (direct) 1581",
+        "name" : "1480 (direct) 1581",
+        "interaction" : "direct",
+        "SUID" : 11912,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11910",
+        "source" : "11841",
+        "target" : "11909",
+        "shared_name" : "1480 (direct) 1577",
+        "name" : "1480 (direct) 1577",
+        "interaction" : "direct",
+        "SUID" : 11910,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11908",
+        "source" : "11841",
+        "target" : "11907",
+        "shared_name" : "1480 (direct) 1575",
+        "name" : "1480 (direct) 1575",
+        "interaction" : "direct",
+        "SUID" : 11908,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11906",
+        "source" : "11841",
+        "target" : "11905",
+        "shared_name" : "1480 (direct) 1518",
+        "name" : "1480 (direct) 1518",
+        "interaction" : "direct",
+        "SUID" : 11906,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11904",
+        "source" : "11841",
+        "target" : "11903",
+        "shared_name" : "1480 (direct) 1507",
+        "name" : "1480 (direct) 1507",
+        "interaction" : "direct",
+        "SUID" : 11904,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11902",
+        "source" : "11841",
+        "target" : "11901",
+        "shared_name" : "1480 (direct) 1489",
+        "name" : "1480 (direct) 1489",
+        "interaction" : "direct",
+        "SUID" : 11902,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11900",
+        "source" : "11841",
+        "target" : "11899",
+        "shared_name" : "1480 (direct) 1481",
+        "name" : "1480 (direct) 1481",
+        "interaction" : "direct",
+        "SUID" : 11900,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11893",
+        "source" : "11839",
+        "target" : "11892",
+        "shared_name" : "1467 (direct) 1564",
+        "name" : "1467 (direct) 1564",
+        "interaction" : "direct",
+        "SUID" : 11893,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11891",
+        "source" : "11839",
+        "target" : "11890",
+        "shared_name" : "1467 (direct) 1473",
+        "name" : "1467 (direct) 1473",
+        "interaction" : "direct",
+        "SUID" : 11891,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11889",
+        "source" : "11839",
+        "target" : "11888",
+        "shared_name" : "1467 (direct) 1471",
+        "name" : "1467 (direct) 1471",
+        "interaction" : "direct",
+        "SUID" : 11889,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11887",
+        "source" : "11839",
+        "target" : "11877",
+        "shared_name" : "1467 (direct) 1468",
+        "name" : "1467 (direct) 1468",
+        "interaction" : "direct",
+        "SUID" : 11887,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11886",
+        "source" : "11837",
+        "target" : "11885",
+        "shared_name" : "1466 (direct) 1587",
+        "name" : "1466 (direct) 1587",
+        "interaction" : "direct",
+        "SUID" : 11886,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11884",
+        "source" : "11837",
+        "target" : "11883",
+        "shared_name" : "1466 (direct) 1535",
+        "name" : "1466 (direct) 1535",
+        "interaction" : "direct",
+        "SUID" : 11884,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11882",
+        "source" : "11837",
+        "target" : "11881",
+        "shared_name" : "1466 (direct) 1534",
+        "name" : "1466 (direct) 1534",
+        "interaction" : "direct",
+        "SUID" : 11882,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11880",
+        "source" : "11837",
+        "target" : "11879",
+        "shared_name" : "1466 (direct) 1476",
+        "name" : "1466 (direct) 1476",
+        "interaction" : "direct",
+        "SUID" : 11880,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11878",
+        "source" : "11837",
+        "target" : "11877",
+        "shared_name" : "1466 (direct) 1468",
+        "name" : "1466 (direct) 1468",
+        "interaction" : "direct",
+        "SUID" : 11878,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11873",
+        "source" : "11835",
+        "target" : "11871",
+        "shared_name" : "1459 (direct) 1461",
+        "name" : "1459 (direct) 1461",
+        "interaction" : "direct",
+        "SUID" : 11873,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11872",
+        "source" : "11833",
+        "target" : "11871",
+        "shared_name" : "1457 (direct) 1461",
+        "name" : "1457 (direct) 1461",
+        "interaction" : "direct",
+        "SUID" : 11872,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11977",
+        "source" : "11832",
+        "target" : "11920",
+        "shared_name" : "1456 (different_experiments) 1495",
+        "name" : "1456 (different_experiments) 1495",
+        "interaction" : "different_experiments",
+        "SUID" : 11977,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11976",
+        "source" : "11832",
+        "target" : "11952",
+        "shared_name" : "1456 (different_experiments) 1536",
+        "name" : "1456 (different_experiments) 1536",
+        "interaction" : "different_experiments",
+        "SUID" : 11976,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11975",
+        "source" : "11832",
+        "target" : "11894",
+        "shared_name" : "1456 (different_experiments) 1469",
+        "name" : "1456 (different_experiments) 1469",
+        "interaction" : "different_experiments",
+        "SUID" : 11975,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11974",
+        "source" : "11832",
+        "target" : "11965",
+        "shared_name" : "1456 (different_experiments) 1576",
+        "name" : "1456 (different_experiments) 1576",
+        "interaction" : "different_experiments",
+        "SUID" : 11974,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11973",
+        "source" : "11832",
+        "target" : "11963",
+        "shared_name" : "1456 (different_experiments) 1573",
+        "name" : "1456 (different_experiments) 1573",
+        "interaction" : "different_experiments",
+        "SUID" : 11973,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11972",
+        "source" : "11832",
+        "target" : "11946",
+        "shared_name" : "1456 (different_experiments) 1516",
+        "name" : "1456 (different_experiments) 1516",
+        "interaction" : "different_experiments",
+        "SUID" : 11972,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11971",
+        "source" : "11832",
+        "target" : "11917",
+        "shared_name" : "1456 (different_experiments) 1492",
+        "name" : "1456 (different_experiments) 1492",
+        "interaction" : "different_experiments",
+        "SUID" : 11971,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11970",
+        "source" : "11832",
+        "target" : "11896",
+        "shared_name" : "1456 (different_experiments) 1478",
+        "name" : "1456 (different_experiments) 1478",
+        "interaction" : "different_experiments",
+        "SUID" : 11970,
+        "shared_interaction" : "different_experiments",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11870",
+        "source" : "11832",
+        "target" : "11869",
+        "shared_name" : "1456 (direct) 1580",
+        "name" : "1456 (direct) 1580",
+        "interaction" : "direct",
+        "SUID" : 11870,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11868",
+        "source" : "11832",
+        "target" : "11867",
+        "shared_name" : "1456 (direct) 1561",
+        "name" : "1456 (direct) 1561",
+        "interaction" : "direct",
+        "SUID" : 11868,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11866",
+        "source" : "11832",
+        "target" : "11865",
+        "shared_name" : "1456 (direct) 1555",
+        "name" : "1456 (direct) 1555",
+        "interaction" : "direct",
+        "SUID" : 11866,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11864",
+        "source" : "11832",
+        "target" : "11863",
+        "shared_name" : "1456 (direct) 1544",
+        "name" : "1456 (direct) 1544",
+        "interaction" : "direct",
+        "SUID" : 11864,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11862",
+        "source" : "11832",
+        "target" : "11861",
+        "shared_name" : "1456 (direct) 1543",
+        "name" : "1456 (direct) 1543",
+        "interaction" : "direct",
+        "SUID" : 11862,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11860",
+        "source" : "11832",
+        "target" : "11859",
+        "shared_name" : "1456 (direct) 1531",
+        "name" : "1456 (direct) 1531",
+        "interaction" : "direct",
+        "SUID" : 11860,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11858",
+        "source" : "11832",
+        "target" : "11857",
+        "shared_name" : "1456 (direct) 1530",
+        "name" : "1456 (direct) 1530",
+        "interaction" : "direct",
+        "SUID" : 11858,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11856",
+        "source" : "11832",
+        "target" : "11855",
+        "shared_name" : "1456 (direct) 1509",
+        "name" : "1456 (direct) 1509",
+        "interaction" : "direct",
+        "SUID" : 11856,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11854",
+        "source" : "11832",
+        "target" : "11853",
+        "shared_name" : "1456 (direct) 1508",
+        "name" : "1456 (direct) 1508",
+        "interaction" : "direct",
+        "SUID" : 11854,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11852",
+        "source" : "11832",
+        "target" : "11851",
+        "shared_name" : "1456 (direct) 1506",
+        "name" : "1456 (direct) 1506",
+        "interaction" : "direct",
+        "SUID" : 11852,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11850",
+        "source" : "11832",
+        "target" : "11849",
+        "shared_name" : "1456 (direct) 1499",
+        "name" : "1456 (direct) 1499",
+        "interaction" : "direct",
+        "SUID" : 11850,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11848",
+        "source" : "11832",
+        "target" : "11847",
+        "shared_name" : "1456 (direct) 1487",
+        "name" : "1456 (direct) 1487",
+        "interaction" : "direct",
+        "SUID" : 11848,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11846",
+        "source" : "11832",
+        "target" : "11845",
+        "shared_name" : "1456 (direct) 1484",
+        "name" : "1456 (direct) 1484",
+        "interaction" : "direct",
+        "SUID" : 11846,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11844",
+        "source" : "11832",
+        "target" : "11843",
+        "shared_name" : "1456 (direct) 1483",
+        "name" : "1456 (direct) 1483",
+        "interaction" : "direct",
+        "SUID" : 11844,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11842",
+        "source" : "11832",
+        "target" : "11841",
+        "shared_name" : "1456 (direct) 1480",
+        "name" : "1456 (direct) 1480",
+        "interaction" : "direct",
+        "SUID" : 11842,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11840",
+        "source" : "11832",
+        "target" : "11839",
+        "shared_name" : "1456 (direct) 1467",
+        "name" : "1456 (direct) 1467",
+        "interaction" : "direct",
+        "SUID" : 11840,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11838",
+        "source" : "11832",
+        "target" : "11837",
+        "shared_name" : "1456 (direct) 1466",
+        "name" : "1456 (direct) 1466",
+        "interaction" : "direct",
+        "SUID" : 11838,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11836",
+        "source" : "11832",
+        "target" : "11835",
+        "shared_name" : "1456 (direct) 1459",
+        "name" : "1456 (direct) 1459",
+        "interaction" : "direct",
+        "SUID" : 11836,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    }, {
+      "data" : {
+        "id" : "11834",
+        "source" : "11832",
+        "target" : "11833",
+        "shared_name" : "1456 (direct) 1457",
+        "name" : "1456 (direct) 1457",
+        "interaction" : "direct",
+        "SUID" : 11834,
+        "shared_interaction" : "direct",
+        "selected" : false
+      },
+      "selected" : false
+    } ]
+  }
+}

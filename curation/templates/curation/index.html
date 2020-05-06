@@ -1,0 +1,124 @@
+{% extends 'curation/base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+	{#	<section id="services" class="grey">#}
+	{#		<div class="container">#}
+	{#			<div class="row">#}
+	{#				<div class="col-xs-12 col-sm-9 mb-0">#}
+	{#					<img src="{% static 'curation/images/header_front.jpg' %}" alt="SyneryAge" class="img-responsive header_front">#}
+	{#				</div>#}
+	{#				<div class="col-xs-12 col-sm-3 mb-0">#}
+	{#					<a href="{% url 'browse' %}">#}
+	{#						<img src="{% static 'curation/images/network.png' %}" alt="SynergyAge network" class="img-responsive header_front">#}
+	{#					</a>#}
+	{#				</div>#}
+	{#			</div>#}
+	{#		</div>#}
+	{#	</section>#}
+
+	<section class="container">
+
+		<div class="center">
+			<h2 class="mt-0">Long- and short-lived genetic mutants</h2>
+			<p>Feel free to browse through the mutants recorded in our database</p>
+		</div>
+
+		<div id="meet-the-team" class="row">
+			<div class="col-sm-4 col-xs-12">
+				<div class="center">
+					<a href="/roundworm/" title="Caenorhabditis elegans"><strong>Caenorhabditis elegans</strong></a>
+					<p>
+						<a href="/roundworm/" title="Caenorhabditis elegans">
+							<img class="img-responsive img-thumbnail" src="{% static 'curation/images/roundworm.jpg' %}" alt="Caenorhabditis elegans">
+						</a>
+					</p>
+					<h5>
+						<small class="designation muted">{{ r_combinations }} gene combinations</small>
+						<small class="designation muted">{{ r_lifespans }} lifespan values</small>
+					</h5>
+				</div>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<div class="center">
+					<a href="/fruit-fly/" title="Drosophila melanogaster"><strong>Drosophila melanogaster</strong></a>
+					<p>
+						<a href="/fruit-fly/" title="Drosophila melanogaster">
+							<img class="img-responsive img-thumbnail" src="{% static 'curation/images/fruit-fly.jpg' %}" alt="Drosophila melanogaster">
+						</a>
+					</p>
+					<h5>
+						<small class="designation muted">{{ f_combinations }} gene combinations</small>
+						<small class="designation muted">{{ f_lifespans }} lifespan values</small>
+					</h5>
+				</div>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<div class="center">
+					<a href="/mouse/" title="Mus musculus"><strong>Mus musculus</strong></a>
+					<p>
+						<a href="/mouse/" title="Mus musculus">
+							<img class="img-responsive img-thumbnail" src="{% static 'curation/images/mouse.jpg' %}" alt="Mus musculus">
+						</a>
+					</p>
+					<h5>
+						<small class="designation muted">{{ m_combinations }} gene combinations</small>
+						<small class="designation muted">{{ m_lifespans }} lifespan values</small>
+					</h5>
+				</div>
+			</div>
+			<div class="col-xs-12 text-center hidden">
+				<div class="well well-small mb-0" id="under_review">
+					Currently under review (suggested articles): 0 worm papers
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section id="testimonial">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="center">
+						<h2 class="mt-0">Are the effects of lifespan determinants additive?</h2>
+						<p class="mb-0">“A database of long- and short-lived mutants determined by synergistic or antagonistic genetic interventions”</p>
+					</div>
+					<div class="gap"></div>
+					<div class="row">
+						<div class="col-xs-12 col-md-6 vcenter">
+							<blockquote>
+								<p>{{ genetic_interventions }} mutants with at least 2 genetic interventions</p>
+								<p>{{ unique_genes }} unique genes in 3 model organisms</p>
+								<p>{{ r_lifespans|add:m_lifespans|add:f_lifespans }} lifespan values</p>
+								<p>Variuos types of interventions (mutations, RNA interference, overexpression)</p>
+							</blockquote>
+							<blockquote>
+								<p>Data from peer-reviewed scientific literature</p>
+								<p>High quality manual curation</p>
+							</blockquote>
+							<blockquote>
+								<p>Easy to use interface</p>
+								<p>Visualization in a network form</p>
+								<p>Download available for your own analyses</p>
+							</blockquote>
+						</div><div class="col-xs-12 col-md-6 vcenter">
+							<div class="row">
+								<div class="col-xs-12">
+									{#									<a href="{% url 'browse' %}" title="Browse">#}
+									<img class="img-responsive" src="{% static 'curation/images/SynergyAgeFigs3.4.png' %}">
+									{#									</a>#}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

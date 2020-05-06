@@ -1,0 +1,690 @@
+{% extends 'curation/base.html' %}
+
+{% load times %}
+{% load types %}
+{% load lifespan_change %}
+{% load keyvalue %}
+
+{% block title %}Search genes in the entire database{% endblock %}
+
+{% block content %}
+
+	<section id="title" class="grey">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>Search genes in the entire database</h1>
+				</div>
+				<div class="col-sm-4">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a></li>
+						<li class="active"><a href="/search">Search</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container" id="search_page">
+
+			<div class="row">
+
+				<div class="col-xs-12">
+
+					<form method="post" role="form" id="search_form">
+						{% csrf_token %}
+						<div class="row">
+
+							<div class="col-xs-10 col-md-9">
+								<input type="hidden" name="tax_id" value="{{ species_id }}">
+								<input type="text" class="form-control input-lg" name="gene" placeholder="Gene/genes, semicolon or comma separated" {% if request.POST.gene %} value="{{ request.POST.gene }}"{% endif %}>
+							</div>
+							<div class="col-xs-2 col-md-1">
+								<i class="fa fa-question-circle" id="search_info" aria-hidden="true" data-toggle="tooltip" data-html="true" title="Examples:<br>age 1<br>daf-2<br>eat2<br>daf-2, daf-16<br>daf-2; daf-16 ; age-1"></i>
+							</div>
+							<div class="col-xs-12 col-md-2">
+								<button type="submit" class="btn btn-lg btn-danger">List genes</button>
+							</div>
+
+						</div>
+						<div class="row">
+
+							<div class="col-xs-12 col-md-3">
+								<i class="fa fa-filter select-label" aria-hidden="true"></i><!--
+					 --><select id="filter" name="filter" class="form-control submit-change">
+								<option value="all" {% if request.POST.filter == 'all' %} selected{% endif %}>All effects</option>
+								<option value="small" {% if request.POST.filter == 'small' %} selected{% endif %}>Small effects</option>
+								<option value="negative" {% if request.POST.filter == 'negative' %} selected{% endif %}>Negative effects</option>
+								<option value="positive" {% if request.POST.filter == 'positive' %} selected{% endif %}>Positive effects</option>
+							</select>
+							</div>
+
+							<div class="col-xs-12 col-md-3">
+								<i class="fa fa-sort select-label" aria-hidden="true"></i><!--
+						 --><select id="order" name="order" class="form-control submit-change">
+								<option value="name_asc" {% if request.POST.order == 'name_asc' %} selected{% endif %}>Name (asc)</option>
+								<option value="name_desc" {% if request.POST.order == 'name_desc' %} selected{% endif %}>Name (desc)</option>
+								<option value="effect_asc" {% if request.POST.order == 'effect_asc' %} selected{% endif %}>Effect (asc)</option>
+								<option value="effect_desc" {% if request.POST.order == 'effect_desc' %} selected{% endif %}>Effect (desc)</option>
+							</select>
+							</div>
+
+							<div class="col-xs-12 col-md-3">
+								<i class="fa fa-archive select-label" aria-hidden="true"></i><!--
+						 --><select id="organism" name="organism" class="form-control submit-change">
+								<option value="all" {% if request.POST.organism == 'all' %} selected{% endif %}>All organisms</option>
+								<option value="6239" {% if request.POST.organism == '6239' %} selected{% endif %}>Caenorhabditis elegans</option>
+								<option value="7227" {% if request.POST.organism == '7227' %} selected{% endif %}>Drosophila melanogaster</option>
+								<option value="10090" {% if request.POST.organism == '10090' %} selected{% endif %}>Mus musculus</option>
+							</select>
+							</div>
+
+							<div class="col-xs-12 col-md-3">
+								<select class="multiselect" name="include" multiple="multiple">
+									{% if included_types %}
+										<option value="0"{% if '0' in included_types %} selected="selected"{% endif %}>Single mutants</option>
+										<option value="1"{% if '1' in included_types %} selected="selected"{% endif %}>Double mutants</option>
+										<option value="2"{% if '2' in included_types %} selected="selected"{% endif %}>Triple mutants</option>
+										<option value="3"{% if '3' in included_types %} selected="selected"{% endif %}>Quadruple mutants</option>
+										<option value="4"{% if '4' in included_types %} selected="selected"{% endif %}>Quintuple mutants</option>
+										<option value="5"{% if '5' in included_types %} selected="selected"{% endif %}>Sextuple mutants</option>
+									{% else %}
+										<option value="0" selected="selected">Single mutants</option>
+										<option value="1" selected="selected">Double mutants</option>
+										<option value="2" selected="selected">Triple mutants</option>
+										<option value="3" selected="selected">Quadruple mutants</option>
+										<option value="4" selected="selected">Quintuple mutants</option>
+										<option value="5" selected="selected">Sextuple mutants</option>
+									{% endif %}
+								</select>
+							</div>
+
+						</div>
+					</form>
+
+					{% if request.POST %}
+						{% if genes|join:";" != "" %}
+							<p>
+								Showing results for "{{ genes|join:";" }}".
+							</p>
+						{% endif %}
+					{% endif %}
+					<div class="panel panel-default">
+
+						<div class="table-responsive">
+
+							{% if exactMatch and request.POST %}
+								<table class="table table-striped table-hover results-table">
+									<thead>
+									<tr>
+										<th class="gene-name">
+											<i class="fa fa-minus-square toggle-table-results" aria-hidden="true" data-clicks="0" data-toggle="collapse" href="#exact_match_results"></i>
+											Exact match
+										</th>
+										<th>Organism</th>
+										<th class="gene-type">Mutant type</th>
+										<th class="gene-count">No. experiments</th>
+										<th class="change-avg"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="compared to average lifespan of wild type"></i> Change in average lifespan</th>
+										<th class="est-column">&nbsp;</th>
+										<th class="th-epistasis"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-html="true" title="- Classification is made only based on available data<br>- Positive epistasis means increased lifespan vs wild type<br>- Negative epistasis means decreased lifespan vs wild type"></i> Epistasis</th>
+									</tr>
+									</thead>
+									<tbody class="collapse in" id="exact_match_results">
+									{% for model in exactMatch %}
+										<tr data-type="{{ model.genes|types }}" data-gene-name="{{ model.genes }}">
+											<td class="gene-name"><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="/details/{{ model.id }}">{{ model.genes }}</a></td>
+											<td class="gene-organism">
+												{% if model.tax == 6239 %}
+													Caenorhabditis elegans
+												{% elif model.tax == 7227 %}
+													Drosophila melanogaster
+												{% elif model.tax == 10090 %}
+													Mus musculus
+												{% endif %}
+											</td>
+											<td class="gene-type">{{ model.genes|types }}</td>
+											<td class="gene-count">{{ model.count }}</td>
+											{% if model.min_effect != None or model.max_effect != None %}
+												<td class="est-column">&nbsp;</td>
+												<td class="change-avg">
+													{% if model.min_effect == model.max_effect %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is {% if model.min_effect != 0 %}{{ model.min_effect|times }} times{% else %}equal to{% endif %} the lifespan of wildtype"></i>
+														<small class="text-muted">
+															{% if model.min_effect > 0 %}
+																<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+															{% elif model.min_effect == 0 %}
+																<i class="fa fa-circle" aria-hidden="true"></i>
+															{% else %}
+																<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+															{% endif %}
+														</small>
+														<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span>
+													{% else %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is between {{ model.min_effect|times }} times and {{ model.max_effect|times }} times the lifespan of wildtype"></i>
+														{% if model.min_effect %}
+															<small class="text-muted">
+																{% if model.min_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.min_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span> ..
+														{% endif %}
+														{% if model.max_effect %}
+															<small class="text-muted">
+																{% if model.max_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.max_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.max_effect|floatformat:2 }}%</span>
+														{% endif %}
+													{% endif %}
+												</td>
+											{% else %}
+												<td class="change-avg">{% lifespan_change model.genes model.min_lifespan model.max_lifespan organism_min_lifespan|keyvalue:model.tax organism_max_lifespan|keyvalue:model.tax %}</td>
+											{% endif %}
+											<td class="interaction-type"><span class="hidden"></span></td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							{% endif %}
+
+							{% if everyGene and everyGene|length > 0 and request.POST and genes|join:";" != "" %}
+								<table class="table table-striped table-hover results-table">
+									<thead>
+									<tr>
+										<th class="gene-name">
+											<i class="fa fa-minus-square toggle-table-results" aria-hidden="true" data-clicks="0" data-toggle="collapse" href="#every_gene_results"></i>
+											Every gene ({{ everyGene.count }} results)
+										</th>
+										<th class="gene-organism">Organism</th>
+										<th class="gene-type">Mutant type</th>
+										<th class="gene-count">No. experiments</th>
+										<th class="change-avg"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="compared to average lifespan of wild type"></i> Change in average lifespan</th>
+										<th class="est-column">&nbsp;</th>
+										<th class="th-epistasis"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-html="true" title="- Classification is made only based on available data<br>- Positive epistasis means increased lifespan vs wild type<br>- Negative epistasis means decreased lifespan vs wild type"></i> Epistasis</th>
+									</tr>
+									</thead>
+									<tbody class="collapse in" id="every_gene_results">
+									{% for model in everyGene %}
+										<tr data-type="{{ model.genes|types }}" data-gene-name="{{ model.genes }}">
+											<td class="gene-name"><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="/details/{{ model.id }}">{{ model.genes }}</a>
+												<small class="search-submit" data-input="{{ model.genes }}">(view all combinations for this gene)</small>
+											</td>
+											<td class="gene-organism">
+												{% if model.tax == 6239 %}
+													Caenorhabditis elegans
+												{% elif model.tax == 7227 %}
+													Drosophila melanogaster
+												{% elif model.tax == 10090 %}
+													Mus musculus
+												{% endif %}
+											</td>
+											<td class="gene-type">{{ model.genes|types }}</td>
+											<td class="gene-count">{{ model.count }}</td>
+											{% if model.min_effect != None or model.max_effect != None %}
+												<td class="change-avg">
+													{% if model.min_effect == model.max_effect %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is {% if model.min_effect != 0 %}{{ model.min_effect|times }} times{% else %}equal to{% endif %} the lifespan of wildtype"></i>
+														<small class="text-muted">
+															{% if model.min_effect > 0 %}
+																<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+															{% elif model.min_effect == 0 %}
+																<i class="fa fa-circle" aria-hidden="true"></i>
+															{% else %}
+																<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+															{% endif %}
+														</small>
+														<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span>
+													{% else %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is between {{ model.min_effect|times }} times and {{ model.max_effect|times }} times the lifespan of wildtype"></i>
+														{% if model.min_effect %}
+															<small class="text-muted">
+																{% if model.min_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.min_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span> ..
+														{% endif %}
+														{% if model.max_effect %}
+															<small class="text-muted">
+																{% if model.max_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.max_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.max_effect|floatformat:2 }}%</span>
+														{% endif %}
+													{% endif %}
+												</td>
+												<td class="est-column">&nbsp;</td>
+											{% else %}
+												<td class="change-avg">{% lifespan_change model.genes model.min_lifespan model.max_lifespan organism_min_lifespan|keyvalue:model.tax organism_max_lifespan|keyvalue:model.tax %}</td>
+											{% endif %}
+											<td class="interaction-type"><span class="hidden"></span></td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							{% endif %}
+
+							{% if subcombs and request.POST %}
+								<table class="table table-striped table-hover results-table">
+									<thead>
+									<tr>
+										<th class="gene-name">
+											<i class="fa fa-minus-square toggle-table-results" aria-hidden="true" data-clicks="0" data-toggle="collapse" href="#subcombs_results"></i>
+											Sub-combinations of the searched genes ({{ subcombs.count }} results)
+										</th>
+										<th class="gene-organism">Organism</th>
+										<th class="gene-type">Mutant type</th>
+										<th class="gene-count">No. experiments</th>
+										<th class="change-avg"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="compared to average lifespan of wild type"></i> Change in average lifespan</th>
+										<th class="est-column">&nbsp;</th>
+										<th class="th-epistasis"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-html="true" title="- Classification is made only based on available data<br>- Positive epistasis means increased lifespan vs wild type<br>- Negative epistasis means decreased lifespan vs wild type"></i> Epistasis</th>
+									</tr>
+									</thead>
+									<tbody class="collapse in" id="subcombs_results">
+									{% for model in subcombs %}
+										<tr data-type="{{ model.genes|types }}" data-gene-name="{{ model.genes }}">
+											<td class="gene-name"><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="/details/{{ model.id }}">{{ model.genes }}</a></td>
+											<td class="gene-organism">
+												{% if model.tax == 6239 %}
+													Caenorhabditis elegans
+												{% elif model.tax == 7227 %}
+													Drosophila melanogaster
+												{% elif model.tax == 10090 %}
+													Mus musculus
+												{% endif %}
+											</td>
+											<td class="gene-type">{{ model.genes|types }}</td>
+											<td class="gene-count">{{ model.count }}</td>
+											{% if model.min_effect != None or model.max_effect != None %}
+												<td class="change-avg">
+													{% if model.min_effect == model.max_effect %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is {% if model.min_effect != 0 %}{{ model.min_effect|times }} times{% else %}equal to{% endif %} the lifespan of wildtype"></i>
+														<small class="text-muted">
+															{% if model.min_effect > 0 %}
+																<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+															{% elif model.min_effect == 0 %}
+																<i class="fa fa-circle" aria-hidden="true"></i>
+															{% else %}
+																<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+															{% endif %}
+														</small>
+														<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span>
+													{% else %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is between {{ model.min_effect|times }} times and {{ model.max_effect|times }} times the lifespan of wildtype"></i>
+														{% if model.min_effect %}
+															<small class="text-muted">
+																{% if model.min_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.min_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span> ..
+														{% endif %}
+														{% if model.max_effect %}
+															<small class="text-muted">
+																{% if model.max_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.max_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.max_effect|floatformat:2 }}%</span>
+														{% endif %}
+													{% endif %}
+												</td>
+												<td class="est-column">&nbsp;</td>
+											{% else %}
+												<td class="change-avg">{% lifespan_change model.genes model.min_lifespan model.max_lifespan organism_min_lifespan|keyvalue:model.tax organism_max_lifespan|keyvalue:model.tax %}</td>
+											{% endif %}
+											<td class="interaction-type"><span class="hidden"></span></td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							{% endif %}
+
+							{% if includeAll or includeOne %}
+								{% if genes|join:";" != "" %}
+									<ul class="nav nav-tabs" id="table-nav">
+										Select
+										{% if includeAll|length > includeOne|length %}
+											<li><a href="#includeall" data-toggle="tab">AND</a></li>
+											{% if includeOne|length > 0 %}
+												/
+												<li><a href="#includeone" data-toggle="tab">OR <sup data-toggle="tooltip" title='Without "AND" results'>*</sup></a></li>
+											{% endif %}
+											operator to view combinations that include either all searched genes and other genes, or at least one of the
+										{% else %}
+											<li><a href="#includeone" data-toggle="tab">OR <sup data-toggle="tooltip" title='Without "AND" results'>*</sup></a></li>
+											{% if includeAll|length > 0 %}
+												/
+												<li><a href="#includeall" data-toggle="tab">AND</a></li>
+											{% endif %}
+											operator to view combinations that include either at least one of the searched genes and other genes, or all
+										{% endif %}
+										searched genes and other genes
+									</ul>
+								{% endif %}
+								<div class="tab-content">
+									<div class="tab-pane" id="includeall">
+										<table class="table table-striped table-hover results-table">
+											<thead>
+											<tr>
+												<th class="gene-name">
+													<i class="fa fa-minus-square toggle-table-results" aria-hidden="true" data-clicks="0" data-toggle="collapse" href="#include_all_results"></i>
+													{% if genes|join:";" != "" %}
+														Combinations that include {{ genes|join:", " }} & other genes ({{ includeAll.count }} results)
+													{% else %}
+														All mutants ({{ includeAll.count }} results)
+													{% endif %}
+												</th>
+												<th class="gene-organism">Organism</th>
+												<th class="gene-type">Mutant type</th>
+												<th class="gene-count">No. experiments</th>
+												<th class="change-avg"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="compared to average lifespan of wild type"></i> Change in average lifespan</th>
+												<th class="est-column">&nbsp;</th>
+												<th class="th-epistasis"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-html="true" title="- Classification is made only based on available data<br>- Positive epistasis means increased lifespan vs wild type<br>- Negative epistasis means decreased lifespan vs wild type"></i> Epistasis</th>
+											</tr>
+											</thead>
+											<tbody class="collapse in" id="include_all_results">
+											{% for model in includeAll %}
+												<tr data-type="{{ model.genes|types }}" data-gene-name="{{ model.genes }}">
+													<td class="gene-name"><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="/details/{{ model.id }}">{{ model.genes }}</a></td>
+													<td class="gene-organism">
+														{% if model.tax == 6239 %}
+															Caenorhabditis elegans
+														{% elif model.tax == 7227 %}
+															Drosophila melanogaster
+														{% elif model.tax == 10090 %}
+															Mus musculus
+														{% endif %}
+													</td>
+													<td class="gene-type">{{ model.genes|types }}</td>
+													<td class="gene-count">{{ model.count }}</td>
+													{% if model.min_effect != None or model.max_effect != None %}
+														<td class="change-avg">
+															{% if model.min_effect == model.max_effect %}
+																<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is {% if model.min_effect != 0 %}{{ model.min_effect|times }} times{% else %}equal to{% endif %} the lifespan of wildtype"></i>
+																<small class="text-muted">
+																	{% if model.min_effect > 0 %}
+																		<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																	{% elif model.min_effect == 0 %}
+																		<i class="fa fa-circle" aria-hidden="true"></i>
+																	{% else %}
+																		<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																	{% endif %}
+																</small>
+																<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span>
+															{% else %}
+																<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is between {{ model.min_effect|times }} times and {{ model.max_effect|times }} times the lifespan of wildtype"></i>
+																{% if model.min_effect %}
+																	<small class="text-muted">
+																		{% if model.min_effect > 0 %}
+																			<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																		{% elif model.min_effect == 0 %}
+																			<i class="fa fa-circle" aria-hidden="true"></i>
+																		{% else %}
+																			<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																		{% endif %}
+																	</small>
+																	<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span> ..
+																{% endif %}
+																{% if model.max_effect %}
+																	<small class="text-muted">
+																		{% if model.max_effect > 0 %}
+																			<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																		{% elif model.max_effect == 0 %}
+																			<i class="fa fa-circle" aria-hidden="true"></i>
+																		{% else %}
+																			<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																		{% endif %}
+																	</small>
+																	<span class="fixed-width">{{ model.max_effect|floatformat:2 }}%</span>
+																{% endif %}
+															{% endif %}
+														</td>
+														<td class="est-column">&nbsp;</td>
+													{% else %}
+														<td class="change-avg">{% lifespan_change model.genes model.min_lifespan model.max_lifespan organism_min_lifespan|keyvalue:model.tax organism_max_lifespan|keyvalue:model.tax %}</td>
+													{% endif %}
+													<td class="interaction-type"><span class="hidden"></span></td>
+												</tr>
+											{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									{% if includeOne|length > 0 %}
+										<div class="tab-pane" id="includeone">
+											<table class="table table-striped table-hover results-table">
+												<thead>
+												<tr>
+													<th class="gene-name">
+														<i class="fa fa-minus-square toggle-table-results" aria-hidden="true" data-clicks="0" data-toggle="collapse" href="#include_one_results"></i>
+														Combinations that include {{ genes|join:" or " }} & other genes ({{ includeOne.count }} results)
+													</th>
+													<th class="gene-organism">Organism</th>
+													<th class="gene-type">Mutant type</th>
+													<th class="gene-count">No. experiments</th>
+													<th class="change-avg"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="compared to average lifespan of wild type"></i> Change in average lifespan</th>
+													<th class="est-column">&nbsp;</th>
+													<th class="th-epistasis"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-html="true" title="- Classification is made only based on available data<br>- Positive epistasis means increased lifespan vs wild type<br>- Negative epistasis means decreased lifespan vs wild type"></i> Epistasis</th>
+												</tr>
+												</thead>
+												<tbody class="collapse in" id="include_one_results">
+												{% for model in includeOne %}
+													<tr data-type="{{ model.genes|types }}" data-gene-name="{{ model.genes }}">
+														<td class="gene-name"><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="/details/{{ model.id }}">{{ model.genes }}</a></td>
+														<td class="gene-organism">
+															{% if model.tax == 6239 %}
+																Caenorhabditis elegans
+															{% elif model.tax == 7227 %}
+																Drosophila melanogaster
+															{% elif model.tax == 10090 %}
+																Mus musculus
+															{% endif %}
+														</td>
+														<td class="gene-type">{{ model.genes|types }}</td>
+														<td class="gene-count">{{ model.count }}</td>
+														{% if model.min_effect != None or model.max_effect != None %}
+															<td class="change-avg">
+																{% if model.min_effect == model.max_effect %}
+																	<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is {% if model.min_effect != 0 %}{{ model.min_effect|times }} times{% else %}equal to{% endif %} the lifespan of wildtype"></i>
+																	<small class="text-muted">
+																		{% if model.min_effect > 0 %}
+																			<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																		{% elif model.min_effect == 0 %}
+																			<i class="fa fa-circle" aria-hidden="true"></i>
+																		{% else %}
+																			<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																		{% endif %}
+																	</small>
+																	<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span>
+																{% else %}
+																	<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is between {{ model.min_effect|times }} times and {{ model.max_effect|times }} times the lifespan of wildtype"></i>
+																	{% if model.min_effect %}
+																		<small class="text-muted">
+																			{% if model.min_effect > 0 %}
+																				<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																			{% elif model.min_effect == 0 %}
+																				<i class="fa fa-circle" aria-hidden="true"></i>
+																			{% else %}
+																				<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																			{% endif %}
+																		</small>
+																		<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span> ..
+																	{% endif %}
+																	{% if model.max_effect %}
+																		<small class="text-muted">
+																			{% if model.max_effect > 0 %}
+																				<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																			{% elif model.max_effect == 0 %}
+																				<i class="fa fa-circle" aria-hidden="true"></i>
+																			{% else %}
+																				<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																			{% endif %}
+																		</small>
+																		<span class="fixed-width">{{ model.max_effect|floatformat:2 }}%</span>
+																	{% endif %}
+																{% endif %}
+															</td>
+															<td class="est-column">&nbsp;</td>
+														{% else %}
+															<td class="change-avg">{% lifespan_change model.genes model.min_lifespan model.max_lifespan organism_min_lifespan|keyvalue:model.tax organism_max_lifespan|keyvalue:model.tax %}</td>
+														{% endif %}
+														<td class="interaction-type"><span class="hidden"></span></td>
+													</tr>
+												{% endfor %}
+												</tbody>
+											</table>
+										</div>
+										</div>
+									{% endif %}
+							{% endif %}
+
+							{% if allGenes %}
+								<div class="pag text-center">
+									<div class="btn-group" role="group">
+										<a href="?page=1" class="btn btn-default">First page</a>
+										{% if allGenes.has_previous and allGenes.previous_page_number != 1 %}
+											<a href="?page={{ allGenes.previous_page_number }}" class="btn btn-default">Previous</a>
+										{% endif %}
+										<button type="button" class="btn btn-default" id="current">Page {{ allGenes.number }} of {{ allGenes.paginator.num_pages }}</button>
+										{% if allGenes.has_next and allGenes.next_page_number != allGenes.paginator.num_pages %}
+											<a href="?page={{ allGenes.next_page_number }}" class="btn btn-default">Next</a>
+										{% endif %}
+										<a href="?page={{ allGenes.paginator.num_pages }}" class="btn btn-default">Last page</a>
+									</div>
+								</div>
+								<table class="table table-striped table-hover results-table">
+									<thead>
+									<tr>
+										<th class="gene-name">
+											<i class="fa fa-minus-square toggle-table-results" aria-hidden="true" data-clicks="0" data-toggle="collapse" href="#all_results"></i>
+											All mutants ({{ no_genes }} results, without single mutants)
+										</th>
+										<th class="gene-organism">Organism</th>
+										<th class="gene-type">Mutant type</th>
+										<th class="gene-count">No. experiments</th>
+										<th class="change-avg"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="compared to average lifespan of wild type"></i> Change in average lifespan</th>
+										<th class="est-column"></th>
+										<th class="th-epistasis"><i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-html="true" title="- Classification is made only based on available data<br>- Positive epistasis means increased lifespan vs wild type<br>- Negative epistasis means decreased lifespan vs wild type"></i> Epistasis</th>
+									</tr>
+									</thead>
+									<tbody class="collapse in" id="all_results">
+									{% for model in allGenes %}
+										<tr data-type="{{ model.genes|types }}" data-gene-name="{{ model.genes }}">
+											<td class="gene-name"><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="/details/{{ model.id }}">{{ model.genes }}</a></td>
+											<td class="gene-organism">
+												{% if model.tax == 6239 %}
+													Caenorhabditis elegans
+												{% elif model.tax == 7227 %}
+													Drosophila melanogaster
+												{% elif model.tax == 10090 %}
+													Mus musculus
+												{% endif %}
+											</td>
+											<td class="gene-type">{{ model.genes|types }}</td>
+											<td class="gene-count">{{ model.count }}</td>
+											{% if model.min_effect != None or model.max_effect != None %}
+												<td class="change-avg">
+													{% if model.min_effect == model.max_effect %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is {% if model.min_effect != 0 %}{{ model.min_effect|times }} times{% else %}equal to{% endif %} the lifespan of wildtype"></i>
+														<small class="text-muted">
+															{% if model.min_effect > 0 %}
+																<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+															{% elif model.min_effect == 0 %}
+																<i class="fa fa-circle" aria-hidden="true"></i>
+															{% else %}
+																<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+															{% endif %}
+														</small>
+														<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span>
+													{% else %}
+														<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" title="The lifespan of {{ model.genes }} is between {{ model.min_effect|times }} times and {{ model.max_effect|times }} times the lifespan of wildtype"></i>
+														{% if model.min_effect %}
+															<small class="text-muted">
+																{% if model.min_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.min_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.min_effect|floatformat:2 }}%</span> ..
+														{% endif %}
+														{% if model.max_effect %}
+															<small class="text-muted">
+																{% if model.max_effect > 0 %}
+																	<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+																{% elif model.max_effect == 0 %}
+																	<i class="fa fa-circle" aria-hidden="true"></i>
+																{% else %}
+																	<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+																{% endif %}
+															</small>
+															<span class="fixed-width">{{ model.max_effect|floatformat:2 }}%</span>
+														{% endif %}
+													{% endif %}
+												</td>
+												<td class="est-column">&nbsp;</td>
+											{% else %}
+												<td class="change-avg">{% lifespan_change model.genes model.min_lifespan model.max_lifespan organism_min_lifespan|keyvalue:model.tax organism_max_lifespan|keyvalue:model.tax %}</td>
+											{% endif %}
+											<td class="interaction-type"><span class="hidden"></span></td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+								<div class="pag text-center">
+									<div class="btn-group" role="group">
+										<a href="?page=1" class="btn btn-default">First page</a>
+										{% if allGenes.has_previous and allGenes.previous_page_number != 1 %}
+											<a href="?page={{ allGenes.previous_page_number }}" class="btn btn-default">Previous</a>
+										{% endif %}
+										<button type="button" class="btn btn-default" id="current">Page {{ allGenes.number }} of {{ allGenes.paginator.num_pages }}</button>
+										{% if allGenes.has_next and allGenes.next_page_number != allGenes.paginator.num_pages %}
+											<a href="?page={{ allGenes.next_page_number }}" class="btn btn-default">Next</a>
+										{% endif %}
+										<a href="?page={{ allGenes.paginator.num_pages }}" class="btn btn-default">Last page</a>
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+	</section>
+
+	<script>
+		type_of_interactions('{{ csrf_token }}');
+	</script>
+
+{% endblock %}

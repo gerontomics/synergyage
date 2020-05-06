@@ -1,0 +1,72 @@
+{% extends 'curation/base.html' %}
+
+{% block title %}Wild type{% endblock %}
+
+{% load static %}
+{% load define %}
+
+{% block content %}
+
+	<section id="title" class="grey">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>Wild type</h1>
+				</div>
+				<div class="col-sm-4">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a></li>
+						{#						<li><a href="/browse/">Browse</a></li>#}
+						<li><a href="/roundworm/">Roundworm</a></li>
+						<li class="active"><a href="/wildtype">Wild type</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="row" id="histograms">
+				<div class="col-xs-12">
+					<p>In general, research groups have assayed lifespan in <em>C. elegans</em> at {{ temperatures|join:"°C, " }}°C ({{ count_entries }} entries in our database).</p>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+							<tr colspan="2">
+								<th>Number of experiments at different temperatures<sup>*</sup></th>
+							</tr>
+							<tr>
+								<th>Temperature</th>
+								<th>Number</th>
+							</tr>
+							</thead>
+							<tbody>
+							{% for result in results %}
+
+								<tr>
+									<td>{{ result.temp }}</td>
+									<td>{{ result.count }}</td>
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+					</div>
+					<p><sup>*</sup>There are {{ count_undet }} entries where temperature could not be determined from the published results.</p>
+				</div>
+
+				{% for temp, lifespan in histograms %}
+					<div class="col-xs-12 col-md-6" data-index="{{ forloop.counter0 }}" data-src="{% url 'histogram' %}?temp={{ temp }}&data={{ lifespan|join:"," }}"></div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<script>
+		load_histograms(0);
+	</script>
+
+{% endblock %}

@@ -1,0 +1,309 @@
+{% extends 'curation/base.html' %}
+
+{% block title %}{{ t_model.genes }}{% endblock %}
+
+{% load static %}
+{% load define %}
+
+{% block content %}
+
+	<section id="title" class="grey title-{{ t_model.tax_id }}">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>{{ t_model.genes }}</h1>
+					<p>
+						{% if count_small_graph > 0 or count_big_graph > 0 %}
+							<span class="text-muted">Lifespan changes:</span>
+							{% if count_small_graph > 0 %}
+								<span class="change-graph active" data-gene="{{ t_model.genes }}" data-type="small" data-tax_id="{{ t_model.tax_id }}" data-page_id="{{ t_model.id }}">From wild type to {{ t_model.genes }}</span>
+								{% if count_big_graph > 0 %}
+									<span class="text-muted" id="change_graph_separator">/</span>
+								{% endif %}
+							{% endif %}
+							{% if count_big_graph > 0 %}
+								<span class="change-graph {% if count_small_graph < 1 %}active{% endif %}" data-gene="{{ t_model.genes }}" data-type="big" data-tax_id="{{ t_model.tax_id }}" data-page_id="{{ t_model.id }}">From {{ t_model.genes }} to multiple mutants</span>
+							{% endif %}
+							{% if t_model.tax_id == 7227 %}
+								<span class="d-block text-danger">DF = decrease in function; IF = increase in function</span>
+							{% endif %}
+						{% else %}
+							&nbsp;
+						{% endif %}
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a></li>
+						{#						<li><a href="/browse/">Browse</a></li>#}
+						{% if t_model.tax_id == 6239 %}
+							<li><a href="/roundworm/">Roundworm</a></li>
+						{% elif t_model.tax_id == 7227 %}
+							<li><a href="/fruit-fly/">Fruit fly</a></li>
+						{% elif t_model.tax_id == 10090 %}
+							<li><a href="/mouse/">Mouse</a></li>
+						{% endif %}
+						<li class="active">{{ t_model.genes }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			{% if count_small_graph > 0 or count_big_graph > 0 %}
+				<div class="row">
+					<div class="col-sm-12">
+
+						<div id="cy_container">
+							<div id="cy"></div>
+							<div id="cy_info">
+								<div class="content"></div>
+							</div>
+							<div id="cy_empty">There is no network for this step. <i class="fa fa-frown-o" aria-hidden="true"></i></div>
+							<div id="cy_fullscreen" data-clicks="0" class="cy_button">Fullscreen mode</div>
+						</div>
+
+						<div id="toggle_graph" class="cy_button" data-clicks="0">Hide graph</div>
+						<div id="reload_graph" class="cy_button"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+
+						<div id="cy_pubmed" class="hidden"></div>
+						{# select pubmeds #}
+
+						<div id="cy_legend" class="cy_button">
+							<span data-clicks="0">Legend</span>
+							<img src="{% static 'curation/images/Fig_Legend_Web_B_1.6-01.png' %}" alt="Fig Legend Web_B 1.6-01" class="img-fluid hidden">
+						</div>
+
+					</div>
+				</div>
+			{% endif %}
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-8" id="experiments">
+					<h4>Genetic mutants with {{ comma_genes }} alterations</h4>
+					{% for model in models|dictsort:"name" %}
+						{% ifchanged model.name %}
+							<div data-toggle="collapse" data-clicked="0" data-name="{{ model.name }}" data-target=".model{{ model.name|slugify }}" aria-hidden="true" class="list-header collapsed">
+								<ul class="list-group col-sm-12">
+									<li class="list-group-item">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> {{ model.name }}
+									</li>
+								</ul>
+							</div>
+						{% endifchanged %}
+						<div class="collapse model{{ model.name|slugify }} list-body" data-name="{{ model.name }}">
+							<ul class="list-group col-sm-12">
+
+								{% ifchanged model.name %}
+									<div id="experiments_container">
+										<table class="table experiments">
+										</table>
+									</div>
+								{% endifchanged %}
+
+								{% if t_model.tax_id == 7227 and model.strain %}
+									<li class="list-group-item"><span>Strain</span>
+										<p class="superscript-square-brackets">{{ model.strain }}</p></li>
+								{% endif %}
+								{% if model.temp != 'NA' and model.temp %}
+									<li class="list-group-item"><span>Temperature <small class="text-muted">°C</small></span>
+										<p>{{ model.temp }}</p></li>
+								{% endif %}
+								{% if model.diet %}
+									<li class="list-group-item">
+										<span>Diet</span>
+										<p>{{ model.diet }}</p>
+									</li>
+								{% endif %}
+								<li class="list-group-item">
+									<span>Lifespan <small class="text-muted">(days)</small></span>
+									<p>{{ model.lifespan }}</p>
+								</li>
+								{% if model.effect %}
+									<li class="list-group-item">
+										<span>Lifespan change <small class="text-muted">(compared to wild type)</small></span>
+										<p>
+											<small class="text-muted">
+												{% if model.effect > 0 %}
+													<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+												{% else %}
+													<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+												{% endif %}
+											</small>
+											{{ model.effect|floatformat:2 }}%
+										</p>
+									</li>
+								{% endif %}
+								{% if model.modelinteractions.comm %}
+									<li class="list-group-item">
+										<span>Phenotype</span>
+										<p>{{ model.modelinteractions.comm }}</p>
+									</li>
+								{% endif %}
+								{% if model.comparison %}
+									<li class="list-group-item">
+										<span>Lifespan comparisons</span>
+										<p>{{ model.comparison }}</p>
+									</li>
+								{% endif %}
+								{% if model.interaction_type %}
+									<li class="list-group-item">
+										<span>
+											Type of interaction
+											<br>
+											<small><a href="{% url 'methods' %}#methods_image" class="text-muted">See methods</a></small>
+										</span>
+										<p>{{ model.interaction_type }}</p>
+									</li>
+								{% endif %}
+								<li class="list-group-item">
+										<span>
+											Citation
+											{% if model.abstract != 'No abstract' %}
+												<br>
+												<small class="show-abstract text-muted">View abstract</small>
+											{% endif %}
+										</span>
+									<p>
+										{{ model.citation }} <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term={{ model.pmid }}" class="pubmed-link" target="_blank"><img src="{% static 'curation/images/pubmed.png' %}" alt="PubMed"> {{ model.pmid }}</a>
+										<a class="select-pmid-graph" data-pmid="{{ model.pmid }}">Click here to select all mutants from this PubMed ID in the graph</a>
+									</p>
+								</li>
+								{% if model.abstract != '' %}
+									<li class="list-group-item abstract-item hidden">
+										<span>Abstract</span>
+										<p>{{ model.abstract }}</p>
+									</li>
+								{% endif %}
+							</ul>
+						</div>
+					{% endfor %}
+					<div class="genes-shortcut">
+						Search genes:
+						{% for gene in genes %}
+							<span class="search-gene" data-gene="{{ gene }}">{{ gene }}</span>
+						{% endfor %}
+						{% if genes|length > 2 %}
+							<span class="search-gene" data-gene="{{ genes|join:";" }}">{{ genes|join:";" }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+				{% if results %}
+					<div class="col-xs-12 col-sm-12 col-md-4" id="right_panel">
+						{% for result in results %}
+							{% if result.symbol %}
+								{% define result.symbol as symbol %}
+							{% else %}
+								{% define result as symbol %}
+							{% endif %}
+							<div class="panel panel-default">
+								<ul class="list-group col-sm-4">
+									{% if result.symbol %}
+										<li class="list-group-item active">Entrez ID</li>
+									{% endif %}
+									<li class="list-group-item active">Symbol</li>
+									<li class="list-group-item active">GenAge</li>
+									{% if result.wbid %}
+										<li class="list-group-item active">Wormbase ID</li>
+									{% elif result.fbid %}
+										<li class="list-group-item active">FlyBase ID</li>
+									{% elif result.mgiid %}
+										<li class="list-group-item active">MGI ID</li>
+									{% endif %}
+								</ul>
+								<ul class="list-group col-sm-8">
+									{% if result.symbol %}
+										<li class="list-group-item">{{ result.entrez_id }}</li>
+									{% endif %}
+									<li class="list-group-item">{{ symbol }}</li>
+									{% if t_model.tax_id == 6239 %}
+										<li class="list-group-item"><a href="http://genomics.senescence.info/genes/details.php?gene={{ symbol }}&organism=Caenorhabditis+elegans" target="_blank">View on GenAge ({{ symbol }})</a></li>
+									{% elif t_model.tax_id == 7227 %}
+										<li class="list-group-item"><a href="http://genomics.senescence.info/genes/details.php?gene={{ symbol }}&organism=Drosophila+melanogaster" target="_blank">View on GenAge ({{ symbol }})</a></li>
+									{% elif t_model.tax_id == 10090 %}
+										<li class="list-group-item"><a href="http://genomics.senescence.info/genes/details.php?gene={{ symbol }}&organism=Mus+musculus" target="_blank">View on GenAge ({{ symbol }})</a></li>
+									{% endif %}
+									{% if result.wbid %}
+										<li class="list-group-item">{{ result.wbid }}</li>
+									{% elif result.fbid %}
+										<li class="list-group-item">{{ result.fbid }}</li>
+									{% elif result.mgiid %}
+										<li class="list-group-item">{{ result.mgiid }}</li>
+									{% endif %}
+								</ul>
+
+								<div class="panel-body">
+									<div class="clearfix">
+										{% if result.description %}
+											<p><i class="fa fa-info-circle" aria-hidden="true"></i> {{ result.description }}</p>
+											<hr>
+										{% endif %}
+										{% if result.locus and result.locus != '-' %}
+											<p><strong>Locus:</strong> {{ result.locus }}</p>
+											<hr>
+										{% endif %}
+										{% if result.wbdescription %}
+											<p><strong>Wormbase description:</strong> {{ result.wbdescription }}</p>
+											<hr>
+										{% endif %}
+										{% if not result.symbol %}
+											<p><i class="fa fa-warning" aria-hidden="true"></i> No gene information for {{ symbol }}</p>
+											<hr>
+										{% endif %}
+									</div>
+									<div class="row text-center" id="external_links">
+										<div class="col-xs-2">
+											{% if t_model.tax_id == 6239 %}
+												<a href="http://www.ensembl.org/Multi/Search/Results?q={{ symbol }};facet_species=Caenorhabditis elegans" data-toggle="tooltip" title="Ensembl" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.ensembl.org"/></a>
+											{% elif t_model.tax_id == 7227 %}
+												<a href="http://www.ensembl.org/Multi/Search/Results?q={{ symbol }};facet_species=Drosophila melanogaster" data-toggle="tooltip" title="Ensembl" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.ensembl.org"/></a>
+											{% elif t_model.tax_id == 10090 %}
+												<a href="http://www.ensembl.org/Multi/Search/Results?q={{ symbol }};facet_species=Mouse" data-toggle="tooltip" title="Ensembl" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.ensembl.org"/></a>
+											{% endif %}
+										</div>
+										<div class="col-xs-2">
+											<a href="http://www.ncbi.nlm.nih.gov/gene/?term={{ result.entrez_id }}" data-toggle="tooltip" title="Entrez&nbsp;Gene" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.ncbi.nlm.nih.gov"/></a>
+										</div>
+										<div class="col-xs-2">
+											<a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?CMD=Search&db=homologene&term={{ symbol }}" data-toggle="tooltip" title="Homologues" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.ncbi.nlm.nih.gov"/></a>
+										</div>
+										<div class="col-xs-2">
+											<a href="http://www.uniprot.org/uniprot/?query={{ symbol }}&sort=score" data-toggle="tooltip" title="UniProt" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.uniprot.org"/></a>
+										</div>
+										<div class="col-xs-2">
+											{% if t_model.tax_id == 6239 %}
+												<a href="http://www.google.com/search?q={{ symbol }} gene C elegans" data-toggle="tooltip" title="Google" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.google.com"/></a>
+											{% elif t_model.tax_id == 7227 %}
+												<a href="http://www.google.com/search?q={{ symbol }} gene D melanogaster " data-toggle="tooltip" title="Google" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.google.com"/></a>
+											{% elif t_model.tax_id == 10090 %}
+												<a href="http://www.google.com/search?q={{ symbol }} gene M musculus" data-toggle="tooltip" title="Google" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.google.com"/></a>
+											{% endif %}
+										</div>
+										<div class="col-xs-2">
+											<a href="https://thebiogrid.org/search.php?search={{ symbol }}&organism={{ t_model.tax_id }}" data-toggle="tooltip" title="BioGRID" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.thebiogrid.org"/></a>
+										</div>
+										<div class="col-xs-2">
+											{% if t_model.tax_id == 6239 %}
+												<a href="https://wormbase.org/species/c_elegans/gene/{{ result.wbid }}" data-toggle="tooltip" title="WormBase" target="_blank"><img src="https://www.google.com/s2/favicons?domain=wormbase.org"/></a>
+											{% elif t_model.tax_id == 7227 %}
+												<a href="http://flybase.org/reports/{{ result.fbid }}" data-toggle="tooltip" title="FlyBase" target="_blank"><img src="https://www.google.com/s2/favicons?domain=flybase.org"/></a>
+											{% elif t_model.tax_id == 10090 %}
+												<a href="http://www.informatics.jax.org/searchtool/Search.do?query={{ result.mgiid }}" data-toggle="tooltip" title="MGI" target="_blank"><img src="https://www.google.com/s2/favicons?domain=www.informatics.jax.org"/></a>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+	</section>
+
+	<script>
+		showGeneGraph('{{ t_model.genes }}', 'small', {{ t_model.tax_id }}, {{ t_model.id }});
+		superscript_square_brackets();
+	</script>
+{% endblock %}

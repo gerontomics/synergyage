@@ -1,0 +1,44 @@
+{% extends 'admin/change_form.html' %}
+
+{% load static %}
+
+{% block admin_change_form_document_ready %}
+
+	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'admin/pubmed.css' %}">
+	<script type="text/javascript" src="{% static 'admin/curationdata.js' %}"></script>
+{% endblock %}
+
+
+{% block after_field_sets %}
+
+	{% if pmid %}
+		<div id="pubmed_info">
+
+			{{ issue }}
+			{{ year }};{{ number }}:{{ pages }}
+			<a href="https://www.ncbi.nlm.nih.gov/pubmed/?term={{ pmid }}" target="_blank">{{ title }}</a>
+			{{ authors }}
+			<p>{{ abstract|truncatechars:1024 }}</p>
+
+			{% if abstract != "No abstract" %}
+				<a href="#abstract" role="button" class="btn" data-toggle="modal">See full abstract <i class="icon-zoom-in"></i></a>
+
+				<div id="abstract" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h3 id="title">{{ title }}</h3>
+					</div>
+					<div class="modal-body">
+						<p>{{ abstract }}</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					</div>
+				</div>
+			{% endif %}
+
+		</div>
+	{% endif %}
+
+{% endblock %}

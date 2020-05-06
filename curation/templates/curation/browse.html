@@ -1,0 +1,87 @@
+{% extends 'curation/base.html' %}
+
+{% block title %}Browse{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+	<section id="title" class="grey">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>Browse</h1>
+					<p>Organization and catalogs are good. Click on your species of interest and find your mutant!</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a></li>
+						<li class="active"><a href="/browse">Browse</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container">
+
+		<h1 class="center">Long- and short-lived genetic mutants</h1>
+		<p class="lead center">Feel free to browse through the mutants recorded in our database</p>
+		<div class="gap"></div>
+
+		<div id="meet-the-team" class="row">
+			<div class="col-sm-4 col-xs-12">
+				<div class="center">
+					<p>
+						<a href="/roundworm/" title="Caenorhabditis elegans">
+							<img class="img-responsive img-thumbnail" src="{% static 'curation/images/roundworm.jpg' %}" alt="Caenorhabditis elegans">
+						</a>
+					</p>
+					<h5>
+						<a href="/roundworm/" title="Caenorhabditis elegans">Roundworm</a>
+						<small class="designation muted">Caenorhabditis elegans</small>
+						<small class="designation muted">{{ r_lifespans }} lifespan values</small>
+						<small class="designation muted">{{ r_combinations }} gene combinations</small>
+					</h5>
+				</div>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<div class="center">
+					<p>
+						<a href="/fruit-fly/" title="Drosophila melanogaster">
+							<img class="img-responsive img-thumbnail" src="{% static 'curation/images/fruit-fly.jpg' %}" alt="Drosophila melanogaster">
+						</a>
+					</p>
+					<h5>
+						<a href="/fruit-fly/" title="Drosophila melanogaster">Fruit fly</a>
+						<small class="designation muted">Drosophila melanogaster</small>
+						<small class="designation muted">{{ f_lifespans }} lifespan values</small>
+						<small class="designation muted">{{ f_combinations }} gene combinations</small>
+					</h5>
+				</div>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<div class="center">
+					<p>
+						<a href="/mouse/" title="Mus musculus">
+							<img class="img-responsive img-thumbnail" src="{% static 'curation/images/mouse.jpg' %}" alt="Mus musculus">
+						</a>
+					</p>
+					<h5>
+						<a href="/mouse/" title="Mus musculus">Mouse</a>
+						<small class="designation muted">Mus musculus</small>
+						<small class="designation muted">{{ m_lifespans }} lifespan values</small>
+						<small class="designation muted">{{ m_combinations }} gene combinations</small>
+					</h5>
+				</div>
+			</div>
+			<div class="col-xs-12 text-center">
+				<div class="well well-small" id="under_review">
+					Currently under review (suggested articles): 38 worm papers, 11 fly papers, 6 mouse papers
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+{% endblock %}

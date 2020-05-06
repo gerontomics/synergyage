@@ -1,0 +1,198 @@
+[ {
+  "format_version" : "1.0",
+  "generated_by" : "cytoscape-3.7.2",
+  "target_cytoscapejs_version" : "~2.1",
+  "title" : "style_homepage_0",
+  "style" : [ {
+    "selector" : "node",
+    "css" : {
+      "shape" : "roundrectangle",
+      "background-color" : "rgb(137,208,245)",
+      "font-size" : 12,
+      "width" : 100.0,
+      "height" : 100.0,
+      "text-valign" : "center",
+      "text-halign" : "center",
+      "border-width" : 0.0,
+      "text-opacity" : 1.0,
+      "background-opacity" : 1.0,
+      "color" : "rgb(0,0,0)",
+      "border-opacity" : 1.0,
+      "border-color" : "rgb(204,204,204)",
+      "font-weight" : "normal",
+      "content" : "data(genes)"
+    }
+  }, {
+    "selector" : "node[No_mutations = 0]",
+    "css" : {
+      "shape" : "diamond"
+    }
+  }, {
+    "selector" : "node[No_mutations = 1]",
+    "css" : {
+      "shape" : "ellipse"
+    }
+  }, {
+    "selector" : "node[No_mutations = 2]",
+    "css" : {
+      "shape" : "rectangle"
+    }
+  }, {
+    "selector" : "node[No_mutations = 3]",
+    "css" : {
+      "shape" : "hexagon"
+    }
+  }, {
+    "selector" : "node[No_mutations = 4]",
+    "css" : {
+      "shape" : "octagon"
+    }
+  }, {
+    "selector" : "node[number > 30]",
+    "css" : {
+      "width" : 1.0
+    }
+  }, {
+    "selector" : "node[number = 30]",
+    "css" : {
+      "width" : 70.0
+    }
+  }, {
+    "selector" : "node[number > 1][number < 30]",
+    "css" : {
+      "width" : "mapData(number,1,30,35,70)"
+    }
+  }, {
+    "selector" : "node[number = 1]",
+    "css" : {
+      "width" : 35.0
+    }
+  }, {
+    "selector" : "node[number < 1]",
+    "css" : {
+      "width" : 1.0
+    }
+  }, {
+    "selector" : "node[number > 30]",
+    "css" : {
+      "height" : 1.0
+    }
+  }, {
+    "selector" : "node[number = 30]",
+    "css" : {
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node[number > 1][number < 30]",
+    "css" : {
+      "height" : "mapData(number,1,30,35,70)"
+    }
+  }, {
+    "selector" : "node[number = 1]",
+    "css" : {
+      "height" : 35.0
+    }
+  }, {
+    "selector" : "node[number < 1]",
+    "css" : {
+      "height" : 1.0
+    }
+  }, {
+    "selector" : "node[avg_lifespan_ > 100]",
+    "css" : {
+      "background-color" : "rgb(255,255,255)"
+    }
+  }, {
+    "selector" : "node[avg_lifespan_ = 100]",
+    "css" : {
+      "background-color" : "rgb(0,102,0)"
+    }
+  }, {
+    "selector" : "node[avg_lifespan_ > 46][avg_lifespan_ < 100]",
+    "css" : {
+      "background-color" : "mapData(avg_lifespan_,46,100,rgb(153,153,153),rgb(0,102,0))"
+    }
+  }, {
+    "selector" : "node[avg_lifespan_ > 0][avg_lifespan_ < 47]",
+    "css" : {
+      "background-color" : "mapData(avg_lifespan_,0,46,rgb(204,0,0),rgb(153,153,153))"
+    }
+  }, {
+    "selector" : "node[avg_lifespan_ = 0]",
+    "css" : {
+      "background-color" : "rgb(204,0,0)"
+    }
+  }, {
+    "selector" : "node[avg_lifespan_ < 0]",
+    "css" : {
+      "background-color" : "rgb(0,0,0)"
+    }
+  }, {
+    "selector" : "node.not-distraction:selected",
+    "css" : {
+      "background-color" : "rgb(255,255,0)"
+    }
+  }, {
+    "selector" : "node.path",
+    "css" : {
+      "border-color" : "rgb(180,88,255)",
+      "border-width" : "8px"
+    }
+  }, {
+    "selector" : "node.tissue",
+    "css" : {
+      "color" : "rgb(255,255,255)",
+      "text-background-color" : "rgb(88,143,255)",
+      "text-background-opacity": 1,
+      "text-background-padding": "5px"
+    }
+  }, {
+    "selector" : "edge",
+    "css" : {
+      "line-style" : "solid",
+      "source-arrow-shape" : "none",
+      "font-size" : 10,
+      "text-opacity" : 1.0,
+      "line-color" : "rgb(132,132,132)",
+      "color" : "rgb(0,0,0)",
+      "font-weight" : "normal",
+      "width" : 2.0,
+      "target-arrow-color" : "rgb(0,0,0)",
+      "curve-style": "bezier",
+      "content" : "",
+      "source-arrow-color" : "rgb(0,0,0)",
+      "opacity" : 1.0,
+      "target-arrow-shape" : "triangle"
+    }
+  }, {
+    "selector" : "edge[interaction = 'different_experiments']",
+    "css" : {
+      "line-style" : "dotted"
+    }
+  }, {
+    "selector" : "edge[interaction = 'direct']",
+    "css" : {
+      "line-style" : "solid"
+    }
+  }, {
+    "selector" : ".distraction-mode",
+    "css" : {
+      "opacity" : ".1"
+    }
+  }, {
+    "selector" : ".distraction-mode:selected",
+    "css" : {
+      "opacity" : "1"
+    }
+  }, {
+    "selector" : ".distraction-mode.selected",
+    "css" : {
+      "opacity" : "1"
+    }
+  }, {
+    "selector" : "edge:selected",
+    "css" : {
+      "line-color" : "rgb(255,0,0)"
+    }
+  } ]
+} ]

@@ -1,0 +1,52 @@
+{% extends 'curation/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+	<section id="title" class="grey">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>About</h1>
+					<p>Long- and short-lived mutants: synergistic/antagonistic genetic interventions</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a></li>
+						<li class="active"><a href="/about">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container" id="about">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>The SynergyAge project</h3>
+				<p>The main goal of the SynergyAge database is to host high-quality, manually curated information about the synergistic and antagonistic lifespan effects of genetic interventions in model organisms. Although our group aims to better understand human aging, data on the effect of multiple genetic manipulations in humans is inexistent (for obvious reasons). As such, SynergyAge relies on reporting combinations of genetic manipulations from model organisms only. Currently three organisms are included, worms, flies and mice, with data curated so far coming mostly from worms. This bias is mainly due to a easier methodology of modulating gene expression in worms (e.g. through RNAi) but also due to lifespan screening in worms being much faster (worms live much less and are a friendly model for this type of studies). All entries in SynergyAge are based on experimentally validated results from peer-reviewed scientific literature and are manually extracted by our database
+					curators. We also aim to make the searching pattern for new combinations as unbias as possible, however this will always have a subjectivity component from human selection (if you feel we missed a paper that should be here, please do not hesitate to <a href="/submit-article" title="Submit article">contact us</a>).</p>
+				<p>For more details, about the way we select papers and mutants for inclusion, please see our <a href="/methods" title="Methos">Methods</a> section. Briefly, the genes included in this database are generally model organism longevity-associated genes, meaning that it was shown that they significantly affect lifespan through genetic manipulations in healthy animals (for more details, see the definition of longevity-associated genes in the <a href="http://genomics.senescence.info/genes/" target="_blank" title="GenAge database">GenAge database</a> or in the <a href="https://www.ncbi.nlm.nih.gov/pubmed/29121237" target="_blank" title="Human Ageing Genomic Resources: new and updated databases.">HAGR paper</a>). For each combination of genes, a description about the lifespan effect and experimental conditions is given, reference(s) to the scientific study describing the effect, as well as informations about genes and lifespans of single mutants. This information is presented
+					both in a textual form and a graphical form, allowing users to look at a bigger picture on the additivity effect (or lack of) for multiple genetic interventions.</p>
+				<p>Currently, the database contains a few hundreds mutants, however our curation process is just beginning and we expect to collect more and more data. This data will be made public in periodic data versions (for user to easily keep track of the dataset that they use).</p>
+				<h4>Download</h4>
+				<p>It is possible to download the raw data from our database on request. The availability for downloading data will be made as soon as our article is accepted for publication.</p>
+				<h3>Our group</h3>
+				<p>The Computational Biology of Aging Group is a research group based in the Institute of Biochemistry of the Romanian Academy. With a highly multi-disciplinary team, our areas of interest span biogerontology, systems biology and bioinformatics, and our projects include both computational aspects (data aggregation and processing, multidimensional data analysis, network-based methods, systems theory approaches, deep learning, etc.) as well as wet-lab experiments (in particular in-vivo testing of the computationally predicted interventions). Broadly speaking, our mission is to use and develop computational tools, with the goal of enhancing our knowledge and understanding of the aging process.</p>
+				<p>This project is currently part of a larger EU/RO grant, Gerontomics, to develop a Multi-omics Prediction System for Prioritization of Gerontological Interventions.</p>
+				<p>If you would like to read more about our group or about the Gerontomics project, please visit our page at <a href="http://aging.biochim.ro" target="_blank" title="Computational Biology of Aging Group">www.aging.biochim.ro</a>.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h4>Our Location</h4>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11393.294308265886!2d26.045824!3d44.4470358!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d14cf9e05c95d25!2sInstitutul+de+Biochimie+al+Academiei+Rom%C3%A2ne!5e0!3m2!1sro!2sro!4v1499415767674" width="100%" height="215" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

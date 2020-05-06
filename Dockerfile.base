@@ -1,0 +1,42 @@
+# Use it to generate a base image.
+# Expensive to build but rare.
+FROM alpine:3.9
+
+ARG S6_VERSION=v1.22.0.0
+
+WORKDIR /srv/www
+
+COPY requirements.txt .
+
+RUN apk add -U curl nano && \
+    curl -sL https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-amd64.tar.gz -o /tmp/s6.tgz && \
+    tar xzf /tmp/s6.tgz -C / && \
+    rm -f /tmp/s6.tgz && \
+    apk add --update --no-cache \
+        python3 && \
+    ln -sf /usr/bin/python3 /usr/bin/python && \
+    ln -sf /usr/bin/pip3 /usr/bin/pip && \
+    python -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip install --upgrade pip setuptools && \
+    apk add -U --virtual .build-dependencies \
+        build-base \
+        freetype-dev \
+        gfortran \
+        jpeg-dev \
+        lapack \
+        lapack-dev \
+        libpng-dev \
+        postgresql-dev \
+        python3-dev \
+        zlib-dev && \
+    pip install gunicorn && \
+    pip install -r requirements.txt && \
+    apk del .build-dependencies && \
+    apk add -U \
+        freetype \
+        lapack \
+        libpq \
+        libstdc++&& \
+    rm -r /root/.cache && \
+    rm -rf /var/lib/apk/*

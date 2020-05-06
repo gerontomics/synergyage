@@ -1,0 +1,30 @@
+version: '2.1'
+
+services:
+  app:
+    image: registry.gitlab.com/sysbio-aging/synergistic-website:dev
+    environment:
+      DATABASE_URL: 'postgres://${PGSQL_USER}:${PGSQL_PASS}@${PGSQL_HOST}:${PGSQL_PORT}/${PGSQL_DB}'
+      DEBUG: 'true'
+    ports:
+      - "0.0.0.0:5000:5000"
+    volumes:
+      - "./:/srv/www"
+      - "../static_collected_files:/srv/www/static_collected_files"
+      
+  db:
+    image: unocha/postgis:9.6
+    volumes:
+      - "../database_files:/var/lib/pgsql"
+    environment:
+      PGSQL_DB:
+      PGSQL_PASS:
+      PGSQL_USER:
+
+  web:
+    image: unocha/nginx:1.14
+    ports:
+      - "0.0.0.0:80:80"
+    volumes:
+      - "./config_files/nginx:/etc/nginx/conf.d"
+      - "../static_collected_files:/srv/static:ro"

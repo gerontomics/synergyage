@@ -1,0 +1,87 @@
+{% extends 'curation/base.html' %}
+
+{% load static %}
+
+{% block title %}Submit article{% endblock %}
+
+{% block content %}
+
+	<section id="title" class="grey">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>Suggest an article</h1>
+					<p>Help us build this resource faster. Suggest the papers that should be here.</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a></li>
+						<li class="active"><a href="/submit-article">Submit article</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					{% if success %}
+						<div class="alert alert-success text-center" role="alert"><strong>{{ success }}</strong></div>
+					{% endif %}
+					{% if error %}
+						<div class="alert alert-danger text-center" role="alert"><strong>{{ error }}</strong></div>
+					{% endif %}
+					<form method="POST" class="form-horizontal" role="form" id="submit-article">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="col-sm-12">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#pubmed" data-toggle="tab">By PubMed ID</a></li>
+									<li><a href="#citation" data-toggle="tab">Manual citation</a></li>
+								</ul>
+							</div>
+							<div class="tab-content">
+								{{ form.type }}
+								<div class="tab-pane active" id="pubmed">
+									<div class="col-sm-6 margin-top">
+										{{ form.pubmed }}
+									</div>
+								</div>
+								<div class="tab-pane" id="citation">
+									<div class="col-sm-12 margin-top">
+										Citation example: Riffenburgh RH. Statistics in medicine. 2nd ed. Amsterdam (Netherlands): Elsevier Academic Press; c2006. Chapter 24, Regression and correlation methods; p. 447-486.
+									</div>
+									<div class="col-sm-6 margin-top">
+										{{ form.citation }}
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 margin-top">
+								{{ form.email }}
+							</div>
+							<div class="col-sm-12">
+								{{ form.description }}
+							</div>
+						</div>
+						<p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> All fields are required.</p>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="g-recaptcha" data-sitekey="6LfiGTIUAAAAAMaasQI6-clVQW5uvESOB-XGr4rM"></div>
+								<button type="submit" class="btn btn-danger btn-lg margin-top">Submit article for review</button>
+							</div>
+						</div>
+					</form>
+
+					<div class="well well-small" id="gdpr_notice">
+						<img src="{% static 'curation/images/ue.png' %}" alt="European Union" id="ue">
+						EU GDPR notice: This website is in compliance with the EU General Data Protection Regulation (GDPR). Please note that the form above, collects e-mail addresses from submitters of article suggestions. We need this information to potentially contact the submitter in case the reason for suggesting a certain scientific article for inclusion is not straightforward. The data is kept until the article suggestion is fully processed. If however at any time you would like your information to be completely erased from our database, please send an e-mail to the head of our group <img src="{% static 'curation/images/email.png' %}">, and we will immediately proceed to do this. No other personal information (e.g. cookies, location, etc) is collected by our website.
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

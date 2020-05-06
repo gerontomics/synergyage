@@ -1,0 +1,141 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{% block title %}{% endblock %}</title>
+
+		<!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv-printshiv.min.js></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+	<![endif]-->
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
+		<!-- JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.17/cytoscape.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-panzoom/2.5.3/cytoscape-panzoom.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+
+		<!-- Custom CSS and JS -->
+		<link href="{% static 'curation/css/main.css' %}" rel="stylesheet">
+		<script src="{% static 'curation/js/main.js' %}"></script>
+
+		<link rel="shortcut icon" href="{% static 'curation/images/favicon.ico' %}">
+	</head>
+
+	<body>
+
+		{% if request.META.HTTP_HOST|slice:":4" == 'beta' %}
+			<div id="topbar">This is staging version.</div>
+		{% endif %}
+
+		<header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><img src="{% static 'curation/images/logo.png' %}" alt="logo"></a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li{% if request.path == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
+						{#					<li{% if request.path == '/browse/' %} class="active"{% endif %}><a href="/browse/">Browse</a></li>#}
+						<li{% if request.path == '/methods/' %} class="active"{% endif %}><a href="/methods/">Methods</a></li>
+						<li{% if request.path == '/submit-article/' %} class="active"{% endif %}><a href="/submit-article/">Suggest article</a></li>
+						<li{% if request.path == '/about/' %} class="active"{% endif %}><a href="/about/">About</a></li>
+						<li><a href="/download/">Download</a></li>
+						<li id="header-search">
+							<a><i class="fa fa-search" aria-hidden="true"></i></a>
+							<form action="/search/" method="post" id="header-form" class="form-horizontal hidden" role="form">
+								{% csrf_token %}
+								<div class="input-group">
+									<input type="hidden" name="tax_id" value="">
+									<select class="hidden" name="include" multiple="multiple">
+										<option value="0" selected="selected">Single mutants</option>
+										<option value="1" selected="selected">Double mutants</option>
+										<option value="2" selected="selected">Triple mutants</option>
+										<option value="3" selected="selected">Quadruple mutants</option>
+										<option value="4" selected="selected">Quintuple mutants</option>
+										<option value="5" selected="selected">Sextuple mutants</option>
+									</select>
+									<input type="hidden" name="organism" value="all">
+									<input type="text" class="form-control" name="gene" placeholder="Gene/genes, semicolon or comma separated">
+									<span class="input-group-btn">
+									<button class="btn btn-danger" type="submit">List genes</button>
+								</span>
+								</div>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		{% block content %}
+		{% endblock %}
+
+		<section id="bottom" class="grey">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-sm-12">
+						<h4><i class="fa fa-info" aria-hidden="true"></i> About</h4>
+						<p>SynergyAge database hosts high-quality, manually curated information about the synergistic and antagonistic lifespan effects of genetic interventions in model organisms, also allowing users to explore the longevity relationships between genes in a visual way.</p>
+						<p><a href="/about/"><i class="fa fa-chevron-right" aria-hidden="true"></i> Read more</a></p>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<h4><i class="fa fa-building-o" aria-hidden="true"></i> Contact</h4>
+						<address>
+							<strong>Computational Biology of Aging Group</strong><br>
+							Institute of Biochemistry, Ground floor<br>
+							Splaiul Independentei 296, Bucharest, Romania
+						</address>
+						<p><a href="http://aging-research.group" target="_blank"><i class="fa fa-chevron-right" aria-hidden="true"></i> www.aging-research.group</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer id="footer" class="wet-asphalt">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-12">
+						&copy; 2020 <a href="http://aging-research.group" target="_blank">Computational Biology of Aging Group</a>.
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<ul class="pull-right">
+							<li><a href="/">Home</a></li>
+							{#						<li><a href="/browse/">Browse</a></li>#}
+							<li><a href="/methods/">Methods</a></li>
+							<li><a href="/about/">About</a></li>
+							<li><a href="/download/">Download</a></li>
+							<li><a href="/search/"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+							<li><a href="/admin/"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+							<li><a href="#" id="gototop" class="gototop"><i class="fa fa-chevron-up" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-panzoom/2.5.3/cytoscape.js-panzoom.min.css">
+
+		<!-- JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+
+	</body>
+
+</html>

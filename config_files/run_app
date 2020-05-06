@@ -1,0 +1,21 @@
+#!/usr/bin/with-contenv sh
+
+cd /srv/www
+
+[ -z "$WORKERS" ] && export WORKERS=4
+
+chmod +x ./manage.py
+
+echo -en "\n\nMigrate if needed\n\n"
+./manage.py migrate 
+
+echo -en "\n\nCollect static\n\n"
+./manage.py collectstatic --noinput
+
+echo -en "\n\nSyncing  static content to nginx folder\n\n"
+rsync -av --delete --delete-after website/static/ static_collected_files
+
+export PYTHONPATH=$PATH:/srv/www/curation:/usr/lib/python3.6
+
+echo -en "\n\nStarting django\n\n"
+exec gunicorn -w ${WORKERS} -c /srv/www/config_files/gunicorn_conf.py website.wsgi
