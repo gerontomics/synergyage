@@ -1,7 +1,7 @@
 beautifulsoup4==4.6.0
 cycler==0.10.0
 dj-database-url==0.4.2
-Django==1.11.28
+Django==2.2.24
 django-suit==0.2.25
 gunicorn==19.7.1
 kiwisolver==1.0.1
