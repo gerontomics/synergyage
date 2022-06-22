@@ -6,7 +6,7 @@ django-suit==0.2.25
 gunicorn==19.7.1
 kiwisolver==1.0.1
 matplotlib==3.0.2
-numpy==1.15.4
+numpy==1.22.0
 olefile==0.44
 Pillow==6.2.2
 psycopg2==2.7.3
